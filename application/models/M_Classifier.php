@@ -713,26 +713,14 @@ class M_Classifier extends CI_Model{
 		$false_olaatives =0;
 		
 		foreach($array_sentiments as $sentiment){
-			if(($sentiment["kategori_berita"]=="POLITIK" && $sentiment["kategori_datauji"]=="POLITIK") ||
-			($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]=="OLAHRAGA") ||
-			($sentiment["kategori_berita"]=="KESEHATAN" && $sentiment["kategori_datauji"]=="KESEHATAN") ||
-			($sentiment["kategori_berita"]=="PENDIDIKAN" && $sentiment["kategori_datauji"]=="PENDIDIKAN") ||
-			($sentiment["kategori_berita"]=="ENTERTAINMENT" && $sentiment["kategori_datauji"]=="ENTERTAINMENT") ||
-			($sentiment["kategori_berita"]=="BISNIS" && $sentiment["kategori_datauji"]=="BISNIS") ||
-			($sentiment["kategori_berita"]=="TEKNOLOGI" && $sentiment["kategori_datauji"]=="TEKNOLOGI")){
+			if($sentiment["kategori_berita"]=="POLITIK" && $sentiment["kategori_datauji"]=="POLITIK"){
 				$true_positives = $true_positives+1;
 			}
-			else if(($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]=="OLAHRAGA") ||
-			($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]=="OLAHRAGA") ||
-			($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]=="OLAHRAGA") ||
-			($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]=="OLAHRAGA") ||
-			($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]=="OLAHRAGA") ||
-			($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]=="OLAHRAGA") ||
-			($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]=="OLAHRAGA")){
-				$true_olaatives = $true_negatives+1;
+			else if($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]=="OLAHRAGA"){
+				$true_negatives = $true_negatives+1;
 			}
 			else if($sentiment["kategori_berita"]=="POLITIK" && $sentiment["kategori_datauji"]=="OLAHRAGA"){
-				$false_politives = $false_politives+1;
+				$false_positives = $false_positives+1;
 			}
 			else if($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]=="POLITIK"){
 				$false_negatives = $false_negatives+1;
