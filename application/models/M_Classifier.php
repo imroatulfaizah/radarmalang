@@ -665,7 +665,7 @@ class M_Classifier extends CI_Model{
 			$best_class= $this->best_class($pol_polt_prob,$ola_polt_prob, $kes_polt_prob, $pen_polt_prob, $ent_polt_prob, $bis_polt_prob, $tek_polt_prob);
 			
 			//masukkan ke array results
-			$array_results[] = array("id_berita"=>$id_berita,"pol_polt_prob"=>$pol_polt_prob,
+			$array_results[] = array("id_berita"=>$id,"pol_polt_prob"=>$pol_polt_prob,
 			"ola_polt_prob"=>$ola_polt_prob, "kes_polt_prob"=>$kes_polt_prob,
 			"pen_polt_prob"=>$pen_polt_prob, "ent_polt_prob"=>$ent_polt_prob,
 			"bis_polt_prob"=>$bis_polt_prob, "tek_polt_prob"=>$tek_polt_prob,
@@ -673,6 +673,7 @@ class M_Classifier extends CI_Model{
 		}
 		
 		return $array_results;
+		//var_dump($array_results);
 	}
 	
 	public function insert_datauji(){
@@ -719,10 +720,40 @@ class M_Classifier extends CI_Model{
 			else if($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]=="OLAHRAGA"){
 				$true_negatives = $true_negatives+1;
 			}
-			else if($sentiment["kategori_berita"]=="POLITIK" && $sentiment["kategori_datauji"]=="OLAHRAGA"){
+			else if($sentiment["kategori_berita"]=="KESEHATAN" && $sentiment["kategori_datauji"]=="KESEHATAN"){
+				$true_negatives = $true_negatives+1;
+			}
+			else if($sentiment["kategori_berita"]=="PENDIDIKAN" && $sentiment["kategori_datauji"]=="PENDIDIKAN"){
+				$true_negatives = $true_negatives+1;
+			}
+			else if($sentiment["kategori_berita"]=="ENTERTAINMENT" && $sentiment["kategori_datauji"]=="ENTERTAINMENT"){
+				$true_negatives = $true_negatives+1;
+			}
+			else if($sentiment["kategori_berita"]=="BISNIS" && $sentiment["kategori_datauji"]=="BISNIS"){
+				$true_negatives = $true_negatives+1;
+			}
+			else if($sentiment["kategori_berita"]=="TEKNOLOGI" && $sentiment["kategori_datauji"]=="TEKNOLOGI"){
+				$true_negatives = $true_negatives+1;
+			}
+			else if($sentiment["kategori_berita"]=="POLITIK" && $sentiment["kategori_datauji"]!="POLITIK"){
 				$false_positives = $false_positives+1;
 			}
-			else if($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]=="POLITIK"){
+			else if($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]!="OLAHRAGA"){
+				$false_negatives = $false_negatives+1;
+			}
+			else if($sentiment["kategori_berita"]=="KESEHATAN" && $sentiment["kategori_datauji"]!="KESEHATAN"){
+				$false_negatives = $false_negatives+1;
+			}
+			else if($sentiment["kategori_berita"]=="PENDIDIKAN" && $sentiment["kategori_datauji"]!="PENDIDIKAN"){
+				$false_negatives = $false_negatives+1;
+			}
+			else if($sentiment["kategori_berita"]=="ENTERTAINMENT" && $sentiment["kategori_datauji"]!="ENTERTAINMENT"){
+				$false_negatives = $false_negatives+1;
+			}
+			else if($sentiment["kategori_berita"]=="BISNIS" && $sentiment["kategori_datauji"]!="BISNIS"){
+				$false_negatives = $false_negatives+1;
+			}
+			else if($sentiment["kategori_berita"]=="TEKNOLOGI" && $sentiment["kategori_datauji"]!="TEKNOLOGI"){
 				$false_negatives = $false_negatives+1;
 			}
 		}

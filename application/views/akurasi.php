@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Sentiment Analysis</title>
+	<title>Klasifikasi Berita</title>
 	<meta charset="utf-8" />
 	<meta name="url" content="<?=base_url()?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />

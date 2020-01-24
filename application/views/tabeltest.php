@@ -19,8 +19,13 @@
                             <th>No.</th>
                             <th width="25%">Judul BERITA</th>
                             <th>KLASIFIKASI Asli</th>
-                            <th>P <em>Pos</em></th>
-                            <th>P <em>Neg</em></th>
+                            <th>P <em>Politik</em></th>
+                            <th>P <em>Olahraga</em></th>
+							<th>P <em>Kesehatan</em></th>
+							<th>P <em>Pendidikan</em></th>
+							<th>P <em>Entertainment</em></th>
+							<th>P <em>Bisnis</em></th>
+							<th>P <em>Teknologi</em></th>
                             <th>Hasil Analisis</th>
                             <th>Hasil</th>
                         </tr>
