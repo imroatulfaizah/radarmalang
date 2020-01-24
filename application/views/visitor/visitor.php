@@ -128,6 +128,31 @@
 				</div>
 			</div>
 
+			<!--CHART-->
+			<div class="row">
+				<div class="col-md-6 col-sm-12 col-xs-12">
+					<div class="panel panel-default text-center no-border">
+						<div class="panel-heading-small">
+							Perbandingan Data Latih dan Data Uji
+						</div>
+						<div class="panel-body">
+							<div id="latih-dan-uji-chart" class="chart"></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-sm-12 col-xs-12">
+					<div class="panel panel-default text-center no-border">
+						<div class="panel-heading-small">
+							Perbandingan Data Latih Politik dan Olahraga
+						</div>
+						<div class="panel-body">
+							<div id="pos-neg-chart" class="chart"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--AKHIR DARI CHART-->
+
 		</div>
 	</div>
 </div>
@@ -230,6 +255,13 @@
 <!-- FORM VALIDATION-->
 <script src="<?=base_url()?>assets/js/validation/jquery.validate.js"></script>
 <script src="<?=base_url()?>assets/js/validation/additional-methods.min.js"></script>
+<!-- MORRIS JS -->
+<script src="<?=base_url()?>assets/js/charts/raphael.min.js"></script>
+<script src="<?=base_url()?>assets/js/charts/morris.min.js"></script>
+
+<script src="<?=base_url()?>assets/js/custom-scripts.js"></script>
+	<script src="<?=base_url()?>assets/js/dashboard.js"></script>
+	<script src="<?=base_url()?>assets/js/jquery.metisMenu.js"></script>
 
 </body>
 </html>

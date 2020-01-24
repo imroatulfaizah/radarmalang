@@ -20,15 +20,20 @@ function extract_review(){
 		error: function(){
 			$('#loader-wrapper').removeClass("loader");
 			$('#analisis-wrapper').show();
-			alert("Tidak dapat memroses hasil analisis.");
+			alert("Tidak dapat memroses hasil Klasifikasi.");
 		}
 	});
 }
 
 function print_analysis_contents(contents){
-	$("#pos-prob").append(contents[0]);
-	$("#neg-prob").append(contents[1]);
-	$("#visitor-sentimen").append(contents[2]);
+	$("#pol-prob").append(contents[0]);
+	$("#ola-prob").append(contents[1]);
+	$("#kes-prob").append(contents[2]);
+	$("#pen-prob").append(contents[3]);
+	$("#ent-prob").append(contents[4]);
+	$("#bis-prob").append(contents[5]);
+	$("#tek-prob").append(contents[6]);
+	$("#visitor-sentimen").append(contents[7]);
 	console.log(contents);
 }
 

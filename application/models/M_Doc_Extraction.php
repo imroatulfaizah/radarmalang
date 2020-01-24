@@ -39,7 +39,7 @@ class M_Doc_Extraction extends CI_Model{
 	}
 
 
-	/*------------STEMMING------------*/
+	/*------------STEMMING KUY------------*/
 	public function stemming($hasilfiltered){
 
 		//ubah string ke array

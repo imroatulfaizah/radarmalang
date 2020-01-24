@@ -22,6 +22,34 @@
 	</div>
 	<div class="alert alert-info">
 		<table class="borderless">
+			<th width="300"><strong>Probabilitas Berita Pendidikan</strong></th>
+			<th width="20">:</th>
+			<th><span id="pen-prob"></span></th>
+		</table>
+	</div>
+	<div class="alert alert-info">
+		<table class="borderless">
+			<th width="300"><strong>Probabilitas Berita Entertainment</strong></th>
+			<th width="20">:</th>
+			<th><span id="ent-prob"></span></th>
+		</table>
+	</div>
+	<div class="alert alert-info">
+		<table class="borderless">
+			<th width="300"><strong>Probabilitas Berita Bisnis</strong></th>
+			<th width="20">:</th>
+			<th><span id="bis-prob"></span></th>
+		</table>
+	</div>
+	<div class="alert alert-info">
+		<table class="borderless">
+			<th width="300"><strong>Probabilitas Berita Teknologi</strong></th>
+			<th width="20">:</th>
+			<th><span id="tek-prob"></span></th>
+		</table>
+	</div>
+	<div class="alert alert-info">
+		<table class="borderless">
 			<th width="300"><strong>Hasil Klasifikasi</strong></th>
 			<th width="16">:</th>
 			<th><span id="visitor-sentimen" style="font-size: 24px;"></span></th>

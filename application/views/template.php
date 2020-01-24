@@ -138,7 +138,7 @@ if(isset($title)){
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title text-center" id="labelmodaltentang"><strong>Sentiment Analysis for Movie Reviews in Bahasa</strong></h4>
+                            <h4 class="modal-title text-center" id="labelmodaltentang"><strong>Klasifikasi Berita Bahasa Indonesia Menggunakan Metode Naive Bayes</strong></h4>
                         </div>
                         <div class="modal-body text-center">
                              versi p.1 (prototype)

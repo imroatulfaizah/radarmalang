@@ -19,8 +19,8 @@ $(document).ready(function () {
 	Morris.Donut({
 	element: 'pos-neg-chart',
 	data: [
-		{label: "Review Positif", value: data_latih_pos},
-		{label: "Review Negatif", value: data_latih_neg}
+		{label: "Berita Politik", value: data_latih_pos},
+		{label: "Berita Olahraga", value: data_latih_neg}
 	],
 	colors: [
 		'#5CB85C',

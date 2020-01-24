@@ -5,7 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="url" content="<?=base_url()?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="shortcut icon" href="<?=base_url()?>assets/img/sa.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="<?=base_url()?>assets/img/radar.png" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/styles.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/css/material-icons.css">
@@ -45,7 +45,7 @@
                             <h3 id="jumlah-data-latih-positif"><?php echo $pol_traindata; ?></h3>
                         </div>
                         <div class="panel-footer back-footer-green">
-                            Review Data Latih Politik
+                             Berita Data Latih Politik
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                             <h3 id="jumlah-data-latih-negatif"><?php echo $ola_traindata; ?></h3>
                         </div>
                         <div class="panel-footer back-footer-red">
-                            Review Data Latih Kesehatan
+                            Berita Data Latih Kesehatan
                         </div>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
 				</div>
 			</div>
 			<!--AKHIR DARI CHART-->
-			<?php print_r($testing);?>
+			<!-- < print_r($testing);?> -->
     </div>
     <footer><p class="text-center">Copyright &copy 2020 Klasifikasi Berita | Imroatul Faizah.</a></p></footer>
 </div>
@@ -114,8 +114,8 @@
 	<script src="<?=base_url()?>assets/js/jquery.metisMenu.js"></script>
 
 <!-- MORRIS JS -->
-<script src="<?=base_url()?>assets/js//charts/raphael.min.js"></script>
-    <script src="<?=base_url()?>assets/js//charts/morris.min.js"></script>
+<script src="<?=base_url()?>assets/js/charts/raphael.min.js"></script>
+    <script src="<?=base_url()?>assets/js/charts/morris.min.js"></script>
 	
 <!-- Custom JS -->
     <script src="<?=base_url()?>assets/js/custom-scripts.js"></script>
