@@ -57,7 +57,67 @@
                             <h3 id="jumlah-data-latih-negatif"><?php echo $ola_traindata; ?></h3>
                         </div>
                         <div class="panel-footer back-footer-red">
+                            Berita Data Latih Olahraga
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    <div class="panel panel-primary text-center no-border bg-color-red">
+                        <div class="panel-body">
+                            <i class="material-icons material-icons-5x">library_books</i>
+                            <h3 id="jumlah-data-latih-kesehatan"><?php echo $kes_traindata; ?></h3>
+                        </div>
+                        <div class="panel-footer back-footer-red">
                             Berita Data Latih Kesehatan
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    <div class="panel panel-primary text-center no-border bg-color-red">
+                        <div class="panel-body">
+                            <i class="material-icons material-icons-5x">library_books</i>
+                            <h3 id="jumlah-data-latih-pendidikan"><?php echo $pen_traindata; ?></h3>
+                        </div>
+                        <div class="panel-footer back-footer-red">
+                            Berita Data Latih Pendidikan
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    <div class="panel panel-primary text-center no-border bg-color-red">
+                        <div class="panel-body">
+                            <i class="material-icons material-icons-5x">library_books</i>
+                            <h3 id="jumlah-data-latih-entertainment"><?php echo $ent_traindata; ?></h3>
+                        </div>
+                        <div class="panel-footer back-footer-red">
+                            Berita Data Latih Entertainment
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    <div class="panel panel-primary text-center no-border bg-color-red">
+                        <div class="panel-body">
+                            <i class="material-icons material-icons-5x">library_books</i>
+                            <h3 id="jumlah-data-latih-bisnis"><?php echo $bis_traindata; ?></h3>
+                        </div>
+                        <div class="panel-footer back-footer-red">
+                            Berita Data Latih Bisnis
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    <div class="panel panel-primary text-center no-border bg-color-red">
+                        <div class="panel-body">
+                            <i class="material-icons material-icons-5x">library_books</i>
+                            <h3 id="jumlah-data-latih-teknologi"><?php echo $tek_traindata; ?></h3>
+                        </div>
+                        <div class="panel-footer back-footer-red">
+                            Berita Data Latih Teknologi
                         </div>
                     </div>
                 </div>
