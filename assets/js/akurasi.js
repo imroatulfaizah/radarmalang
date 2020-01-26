@@ -35,18 +35,25 @@ function loadmatrix(){
 
 function print_matrix_contents(matrix){
 	$("#total-datauji").append(matrix[0]); //total data uji
-	$("#totaltp").append(matrix[1]); //true positives
+	//$("#totaltp").append(matrix[1]); //true positives
+	$("#tpa").append(matrix[1]);
+	$("#tpb").append(matrix[2]);
+	$("#tpc").append(matrix[3]);
+	$("#tpd").append(matrix[4]);
+	$("#tpe").append(matrix[5]);
+	$("#tpf").append(matrix[6]);
+	$("#tpg").append(matrix[7]);
 	// $("#true-negatives").append(matrix[2]); //true negatives
 	// $("#false-positives").append(matrix[3]); //false positives
 	// $("#false-negatives").append(matrix[4]); //false negatives
-	$("#akurasi").append(matrix[2]); //akurasi
-	$("#error-rate").append(matrix[3]); //error rate
+	$("#akurasi").append(matrix[8]); //akurasi
+	$("#error-rate").append(matrix[9]); //error rate
 	// $("#ppv").append(matrix[7]); //positive predictive value
 	// $("#npv").append(matrix[8]); //negative predictive value
 	// $("#sensitivity").append(matrix[9]); //sensitivity
 	// $("#specificity").append(matrix[10]); //specitivity
 	
-	$("#akurasi-percentage").append((matrix[2]*100).toFixed(2)); //error rate
+	$("#akurasi-percentage").append((matrix[8]*100).toFixed(2)); //error rate
 	
 }
 
