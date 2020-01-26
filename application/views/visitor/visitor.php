@@ -41,6 +41,9 @@
                 <li>
                     <a class="page-scroll" href="#about">Tentang</a>
                 </li>
+				<li>
+                    <a class="page-scroll" href="#login">Login</a>
+                </li>
             </ul>
         </div>
     </div>

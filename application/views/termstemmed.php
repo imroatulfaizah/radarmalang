@@ -48,7 +48,7 @@
                     </div>
                     <!--Akhir dari datatable -->
                 </div>
-                <footer><p class="text-center">Copyright &copy 2016 Sentiment Analysis | All right reserved.</a></p></footer>
+                <footer><p class="text-center">Copyright &copy 2020 Klasifikasi Berita | Imroatul Faizah.</a></p></footer>
             </div>
       </div>
     </div>
