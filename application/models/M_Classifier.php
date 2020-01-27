@@ -540,15 +540,15 @@ class M_Classifier extends CI_Model{
 		$best_class = "POLITIK";
 		if($olahraga>$politik && $olahraga>$kesehatan && $olahraga>$pendidikan && $olahraga>$entertainment && $olahraga>$bisnis && $olahraga>$teknologi){
 			$best_class = "OLAHRAGA";
-		} else if($kesehatan>$politik && $kesehatan>$olahraga && $kesehatan>$pendidikan && $kesehatan>$entertainment && $kesehatan>$bisnis && $olahraga>$teknologi){
+		} else if($kesehatan>$politik && $kesehatan>$olahraga && $kesehatan>$pendidikan && $kesehatan>$entertainment && $kesehatan>$bisnis && $kesehatan>$teknologi){
 			$best_class = "KESEHATAN";
-		} else if($pendidikan>$politik && $pendidikan>$olahraga && $pendidikan>$kesehatan && $pendidikan>$entertainment && $pendidikan>$bisnis && $olahraga>$teknologi){
+		} else if($pendidikan>$politik && $pendidikan>$olahraga && $pendidikan>$kesehatan && $pendidikan>$entertainment && $pendidikan>$bisnis && $kesehatan>$teknologi){
 			$best_class = "PENDIDIKAN";
-		} else if($entertainment>$politik && $entertainment>$olahraga && $entertainment>$kesehatan && $entertainment>$pendidikan && $entertainment>$bisnis && $olahraga>$teknologi){
+		} else if($entertainment>$politik && $entertainment>$olahraga && $entertainment>$kesehatan && $entertainment>$pendidikan && $entertainment>$bisnis && $entertainment>$teknologi){
 			$best_class = "ENTERTAINMENT";
 		} else if($bisnis>$politik && $bisnis>$olahraga && $bisnis>$kesehatan && $bisnis>$pendidikan && $bisnis>$entertainment && $bisnis>$teknologi){
 			$best_class = "BISNIS";
-		} else if($teknologi>$politik && $teknologi>$olahraga && $teknologi>$kesehatan && $teknologi>$pendidikan && $teknologi>$bisnis && $teknologi>$entertainment){
+		} else if($teknologi>$politik && $teknologi>$olahraga && $teknologi>$kesehatan && $teknologi>$pendidikan && $teknologi>$entertainment && $teknologi>$bisnis){
 			$best_class = "TEKNOLOGI";
 		}
 		return $best_class;
@@ -695,7 +695,7 @@ class M_Classifier extends CI_Model{
 		return $badge;
 	}
 	
-	//ambil sentimen asli dan sentimen hasil analisis
+	//ambil klasifikasi asli dan klasifikasi hasil analisis
 	public function get_sentiments(){
 		$this->db->select('sa_berita.kategori_berita, sa_datauji.kategori_datauji');
 		$this->db->from('sa_berita');

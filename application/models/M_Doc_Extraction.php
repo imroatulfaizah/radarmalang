@@ -128,7 +128,7 @@ class M_Doc_Extraction extends CI_Model{
 	}
 
 
-	/*------------NAZIEF ADRIANI------------*/
+	/*------------ALGORITMA NAZIEF ADRIANI------------*/
 
 	//cek apakah term ada di tabel kata dasar
 	public function cekterm($term){
