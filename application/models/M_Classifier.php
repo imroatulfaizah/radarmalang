@@ -773,7 +773,6 @@ class M_Classifier extends CI_Model{
 		foreach($array_sentiments as $sentiment){
 			if($sentiment["kategori_berita"]=="POLITIK" && $sentiment["kategori_datauji"]=="POLITIK") {
 				$tpa = $tpa+1;
-				//echo $tpa;
 			}
 			else if($sentiment["kategori_berita"]=="OLAHRAGA" && $sentiment["kategori_datauji"]=="OLAHRAGA") {
 				$tpb = $tpb+1;
@@ -927,16 +926,21 @@ class M_Classifier extends CI_Model{
 		// $ebf + $ebg + $eca + $ecb + $ecd + $ece + $ecf + $ecg +	$eda + $edb + $edc + $ede +
 		// $edf + $edg + $eea + $eeb + $eec + $eed + $eef + $eeg + $efa + $efb + $efc + $efd + $efe + $efg +
 		// $ega + $egb + $egc + $egd + $ege + $egf;
+		//eab - eag ditambah
+		$total_data_politik = $tpa + $eab + $eac + $ead + $eae + $eaf + $eag;
 
-
+		$acc_politik = $tpa/$total_data_politik;
 		$akurasi = $totaltp/$total_datauji; //AKURASI :(true positives+true negatives)/total data uji
-		 $error_rate = 1- $akurasi; //ERROR-RATE : 1 - akurasi (tingkat kesalahan sistem)
-		// $ppv = $true_positives/($true_positives+$false_positives); //posITIVE PREDICTION VALUE /PRESISI : true positives/(true positives+false positives)
+		$error_rate = 1- $akurasi; //ERROR-RATE : 1 - akurasi (tingkat kesalahan sistem)
+		//$ppv = $true_positives/($true_positives+$false_positives); //posITIVE PREDICTION VALUE /PRESISI : true positives/(true positives+false positives)
 		// $npv = $true_negatives/($true_negatives+$false_negatives); //negaTIVE PREDICTION VALUE : true negatives/(true negatives+false negatives)
 		// $sensitivity = $true_positives/($true_positives+$false_negatives); //SENSITIVITY /RECALL : true positives/(true positives+false negatives)
 		// $specificity = $true_negatives/($true_negatives+$false_positives); //SPECIFICITY : true negatives/(true negatives+false positives)
 		// $array_data_matriks = array($total_datauji, $true_positives, $true_negatives, $false_positives, $false_negatives, $akurasi, $error_rate, $ppv, $npv, $sensitivity, $specificity);
-		$array_data_matriks = array($total_datauji, $tpa, $tpb, $tpc, $tpd, $tpe, $tpf, $tpg, $akurasi, $error_rate);
+		$array_data_matriks = array($total_datauji, $tpa, $tpb, $tpc, $tpd, $tpe, $tpf, $tpg, $akurasi, $error_rate, $eab, $eac, $ead, $eae, $eaf, $eag, $eba,	$ebc, $ebd, $ebe,
+		$ebf, $ebg, $eca, $ecb, $ecd, $ece, $ecf, $ecg,	$eda, $edb, $edc, $ede,
+		$edf, $edg, $eea, $eeb, $eec, $eed, $eef, $eeg, $efa, $efb, $efc, $efd, $efe, $efg,
+		$ega, $egb, $egc, $egd, $ege, $egf, $acc_politik);
 		 return $array_data_matriks;
 	}
 	

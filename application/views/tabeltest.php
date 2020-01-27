@@ -50,6 +50,7 @@
 							<td><strong>Klasifikasi ENTERTAINMENT (E)</strong></td>
 							<td><strong>Klasifikasi BISNIS (F)</strong></td>
 							<td><strong>Klasifikasi TEKNOLOGI (G)</strong></td>
+							<td><strong>Akurasi (G)</strong></td>
 						</tr>
 						<tr>
 							<td><strong>POLITIK (A)</strong></td>
@@ -60,6 +61,7 @@
 							<td><strong>E</strong> ae = <span id="eae"></span></td>
 							<td><strong>E</strong> af = <span id="eaf"></span></td>
 							<td><strong>E</strong> ag = <span id="eag"></span></td>
+							<td><span id="acc_politik_persen"></span></td>
 						</tr>
 						<tr>
 							<td><strong>OLAHRAGA (B)</strong></td>
