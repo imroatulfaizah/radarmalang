@@ -1,12 +1,13 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 class Dashboard extends CI_Controller{
 
 	function __construct(){
 	parent::__construct();
-	//$this->load->model('M_Classifier');
+	$this->load->model('M_Classifier');
 	if(!$this->session->userdata('logged_in')){
-		$this->load->model('M_Classifier');
-	}
+		redirect ('/');
+		}
 	}
 
 	public function index(){

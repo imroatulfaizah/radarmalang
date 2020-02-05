@@ -1,5 +1,5 @@
 <?php
-// defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 class Dataset extends CI_Controller
 {
 	
@@ -11,9 +11,9 @@ class Dataset extends CI_Controller
 		$this->load->model('M_Doc_Extraction');
 		$this->load->model('M_Category');
 
-		// if(!$this->session->userdata('logged_in')){
-		// 	redirect ('/');
-		// }
+		if(!$this->session->userdata('logged_in')){
+			redirect ('/');
+		}
 	}
 
 	public function index(){

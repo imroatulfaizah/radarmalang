@@ -1,5 +1,5 @@
 <?php
-// defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Auth extends CI_Controller {
 
@@ -8,7 +8,7 @@ class Auth extends CI_Controller {
 
 		$this->load->model('M_Authentication');
 		$this->load->library('form_validation');
-
+		
 	}
 
 	public function index(){
@@ -25,7 +25,7 @@ class Auth extends CI_Controller {
 		
 		//cek input validation
 		$this->form_validation->set_rules('username','Username','trim|required|max_length[40]');
-		$this->form_validation->set_rules('password','Password','trim|required|max_length[40]');
+		$this->form_validation->set_rules('password','Password','trim|required|max_length[90]');
 		if ($this->form_validation->run() == FALSE){
            $this->session->set_flashdata('message','Input username atau password tidak valid!');
            $this->session->set_flashdata('type','danger');

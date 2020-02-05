@@ -26,12 +26,12 @@ $(function(){
 		},
 		messages:{
 			judulreview:{
-				required: "Judul review tidak boleh kosong.",
-				maxlength: "Judul review tidak boleh melebihi 100 karakter."
+				required: "Judul berita tidak boleh kosong.",
+				maxlength: "Judul berita tidak boleh melebihi 100 karakter."
 			},
 			teksreview: {
-				required: "Isi review tidak boleh kosong.",
-				maxlength: "Isi review tidak boleh melebihi 7500 karakter"
+				required: "Isi berita tidak boleh kosong.",
+				maxlength: "Isi berita tidak boleh melebihi 7500 karakter"
 			}
 		},
 		submitHandler: function(form){

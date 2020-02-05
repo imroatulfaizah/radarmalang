@@ -55,10 +55,16 @@
 			<th><span id="visitor-sentimen" style="font-size: 24px;"></span></th>
 		</table>
 	</div>
-	<!-- <div class="alert alert-info">
+	<div class="alert alert-info">
 		<table class="borderless">
 			<tr>Term</tr>
-			<tr><td id="term"></td></tr>
+			<tr><td></td></tr>
+			<script>
+			function tampilkan_nilai_form(){
+    var nilai_form=document.getElementById("term").value;
+    document.getElementById("hasil").innerHTML=nilai_form;
+}</script>
+<td id="term"></td>
 		</table>
-	</div> -->
+	</div>
 </div>

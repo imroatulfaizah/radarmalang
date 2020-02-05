@@ -1,4 +1,5 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 class M_Classifier extends CI_Model{
 
 	//hitung total berita di data latih
