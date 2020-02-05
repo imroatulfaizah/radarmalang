@@ -486,10 +486,10 @@ class M_Classifier extends CI_Model{
 	
 	//ambil semua berita data uji
 	public function all_test_docs(){
-		$this->db->select('sa_berita.id_berita, sa_bagofwords.term_stemmed');
+		$this->db->select('id_berita, term_stemmed');
 		$this->db->from('sa_berita');
 		$this->db->where('jenis_data','DATA UJI');
-		$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
+		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
 		$array_test_docs = $this->db->get()->result_array();
 		return $array_test_docs;
 	}
