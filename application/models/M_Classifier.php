@@ -79,8 +79,8 @@ class M_Classifier extends CI_Model{
 	//ambil semua term dari semua data latih
 	public function all_terms_traindata(){
 		$this->db->select('term_stemmed');
-		$this->db->from('sa_bagofwords');
-		$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
+		$this->db->from('sa_berita');
+		//$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
 		$this->db->where('jenis_data','DATA LATIH');
 		$array_terms = $this->db->get()->result_array();
 		$array_terms= array_column($array_terms,'term_stemmed');
@@ -95,8 +95,8 @@ class M_Classifier extends CI_Model{
 	//ambil array semua term dari data latih politik
 	public function array_pol_terms(){
 		$this->db->select('term_stemmed');
-		$this->db->from('sa_bagofwords');
-		$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
+		$this->db->from('sa_berita');
+		//$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
 		$this->db->where('sa_berita.kategori_berita','POLITIK');
 		$this->db->where('sa_berita.jenis_data','DATA LATIH');
 		$array_pol_terms = $this->db->get()->result_array();
@@ -111,8 +111,8 @@ class M_Classifier extends CI_Model{
 	//ambil array semua term dari data latih olaatif
 	public function array_ola_terms(){
 		$this->db->select('term_stemmed');
-		$this->db->from('sa_bagofwords');
-		$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
+		$this->db->from('sa_berita');
+		//$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
 		$this->db->where('sa_berita.kategori_berita','OLAHRAGA');
 		$this->db->where('sa_berita.jenis_data','DATA LATIH');
 		$array_ola_terms = $this->db->get()->result_array();
@@ -127,8 +127,8 @@ class M_Classifier extends CI_Model{
 	//ambil array semua term dari data latih kesehatan
 	public function array_kes_terms(){
 		$this->db->select('term_stemmed');
-		$this->db->from('sa_bagofwords');
-		$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
+		$this->db->from('sa_berita');
+		//$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
 		$this->db->where('sa_berita.kategori_berita','KESEHATAN');
 		$this->db->where('sa_berita.jenis_data','DATA LATIH');
 		$array_kes_terms = $this->db->get()->result_array();
@@ -143,8 +143,8 @@ class M_Classifier extends CI_Model{
 	//ambil array semua term dari data latih pendidikan
 	public function array_pen_terms(){
 		$this->db->select('term_stemmed');
-		$this->db->from('sa_bagofwords');
-		$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
+		$this->db->from('sa_berita');
+		//$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
 		$this->db->where('sa_berita.kategori_berita','PENDIDIKAN');
 		$this->db->where('sa_berita.jenis_data','DATA LATIH');
 		$array_pen_terms = $this->db->get()->result_array();
@@ -158,8 +158,8 @@ class M_Classifier extends CI_Model{
 	//ambil array semua term dari data latih pendidikan
 	public function array_ent_terms(){
 		$this->db->select('term_stemmed');
-		$this->db->from('sa_bagofwords');
-		$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
+		$this->db->from('sa_berita');
+		//$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
 		$this->db->where('sa_berita.kategori_berita','ENTERTAINMENT');
 		$this->db->where('sa_berita.jenis_data','DATA LATIH');
 		$array_ent_terms = $this->db->get()->result_array();
@@ -173,8 +173,8 @@ class M_Classifier extends CI_Model{
 	//ambil array semua term dari data latih BISNIS
 	public function array_bis_terms(){
 		$this->db->select('term_stemmed');
-		$this->db->from('sa_bagofwords');
-		$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
+		$this->db->from('sa_berita');
+		//$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
 		$this->db->where('sa_berita.kategori_berita','BISNIS');
 		$this->db->where('sa_berita.jenis_data','DATA LATIH');
 		$array_bis_terms = $this->db->get()->result_array();
@@ -189,8 +189,8 @@ class M_Classifier extends CI_Model{
 	//ambil array semua term dari data latih TEKNOLOGI
 	public function array_tek_terms(){
 		$this->db->select('term_stemmed');
-		$this->db->from('sa_bagofwords');
-		$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
+		$this->db->from('sa_berita');
+		//$this->db->join('sa_berita', 'sa_berita.id_berita = sa_bagofwords.id_berita');
 		$this->db->where('sa_berita.kategori_berita','TEKNOLOGI');
 		$this->db->where('sa_berita.jenis_data','DATA LATIH');
 		$array_tek_terms = $this->db->get()->result_array();

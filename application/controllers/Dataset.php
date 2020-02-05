@@ -66,8 +66,11 @@ class Dataset extends CI_Controller
 		$isi = $this->input->post('isi_berita');
 		$kategori = $this->input->post('kategori_berita');
 		$jenis_data = $this->input->post('jenis_data');
-		$lastid = $this->M_Cruddataset->inputdataset($judul,$isi,$kategori,$jenis_data);
-		$this->M_Doc_Extraction->insertterm($lastid, $isi);
+		// $term_tokenized = $this->input->post('term_tokenized');
+		// $term_filtered = $this->input->post('term_filtered');
+		// $term_stemmed = $this->input->post('term_stemmed');
+		//$lastid = $this->M_Cruddataset->inputdataset($judul,$isi,$kategori,$jenis_data);
+		$this->M_Doc_Extraction->insertterm($judul, $isi, $kategori,$jenis_data);
 
 		if($lastid){
 			$this->session->set_flashdata('notification','input_berita_success');

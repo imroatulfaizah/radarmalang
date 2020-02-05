@@ -5,11 +5,12 @@ class M_Cruddataset extends CI_Model
 {
 
 
-public function inputdataset($judulberita,$isiberita,$kategori_berita,$jenis_data){
-	$this->db->insert('sa_berita',['judul_berita'=>$judulberita,
-		'isi_berita'=>$isiberita,'kategori_berita'=>$kategori_berita,'jenis_data'=>$jenis_data]);
-		return $this->db->insert_id();
-	}
+// public function inputdataset($judulberita,$isiberita,$kategori_berita,$jenis_data,$term_tokenized,$term_filtered,$term_stemmed){
+// 	$this->db->insert('sa_berita',['judul_berita'=>$judulberita,
+// 		'isi_berita'=>$isiberita,'kategori_berita'=>$kategori_berita,'jenis_data'=>$jenis_data, 
+// 		'term_tokenized'=>"null", 'term_filtered'=>"null", 'term_stemmed'=>"null"]);
+// 		return $this->db->insert_id();
+// 	}
 
 public function deletedataset($id_berita){
 	$delete_berita = $this->db->delete('sa_berita',['id_berita'=>$id_berita]);

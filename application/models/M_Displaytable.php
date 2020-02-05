@@ -124,13 +124,13 @@ class M_Displaytable extends CI_Model
 	public function displaytermtokenized($start, $length, $search_query){
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
-		$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
+		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
 		$this->db->order_by('sa_berita.judul_berita','ASC');
 		$totalfilter = $this->db->count_all_results();
 
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
-		$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
+		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
 		$this->db->order_by('sa_berita.judul_berita','ASC');
 		$this->db->limit($length, $start);
 		$data = $this->db->get()->result_array();
@@ -145,13 +145,13 @@ class M_Displaytable extends CI_Model
 	public function displaytermfiltered($start, $length, $search_query){
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
-		$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
+		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
 		$this->db->order_by('sa_berita.judul_berita','ASC');
 		$totalfilter = $this->db->count_all_results();
 
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
-		$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
+		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
 		$this->db->order_by('sa_berita.judul_berita','ASC');
 		$this->db->limit($length, $start);
 		$data = $this->db->get()->result_array();
@@ -166,13 +166,13 @@ class M_Displaytable extends CI_Model
 	public function displaytermstemmed($start, $length, $search_query){
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
-		$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
+		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
 		$this->db->order_by('sa_berita.judul_berita','ASC');
 		$totalfilter = $this->db->count_all_results();
 
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
-		$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
+		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
 		$this->db->order_by('sa_berita.judul_berita','ASC');
 		$this->db->limit($length, $start);
 		$data = $this->db->get()->result_array();

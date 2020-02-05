@@ -12,7 +12,8 @@ class M_Doc_Extraction extends CI_Model{
 	public function tokenizing($review){
 		$lowercase = strtolower($review);
 		$tokens = preg_replace('/\s+/', ' ', $lowercase);
-		$tokens = preg_replace('/[^a-z \-]/','', $tokens);
+		$tokens = preg_replace('/[^a-z]/',' ', $tokens);
+		//$tokens = preg_replace('/[^a-zA-Z0-9]+/',' ', $tokens);
 		return $tokens;
 		}
 
@@ -848,14 +849,18 @@ class M_Doc_Extraction extends CI_Model{
 
 
 	/*------------INSERT BAG OF WORDS KE DATABASE------------*/
-	public function insertterm($id,$isi){
-
+	public function insertterm($judul, $isi, $kategori,$jenis_data){
+		// $judul = $this->$judul;
+		// $isi = $this->$isi;
+		// $kategori = $this->$kategori;
+		// $jenis_data = $this->$jenis_data;
 		$hasiltoken = $this->tokenizing($isi);
 		$hasilfilter = $this->filtering($hasiltoken);
 		$hasilstemming = $this->stemming($hasilfilter); 
 
 		//insert ke database
-		$this->db->insert('sa_bagofwords',['id_berita'=>$id,'term_tokenized'=>$hasiltoken,'term_filtered'=>$hasilfilter,'term_stemmed'=>$hasilstemming]);
+		$this->db->insert('sa_berita',['judul_berita'=>$judul,'isi_berita'=>$isi,'kategori_berita'=>$kategori,'jenis_data'=>$jenis_data,
+		'term_tokenized'=>$hasiltoken,'term_filtered'=>$hasilfilter,'term_stemmed'=>$hasilstemming]);
 
 	}
 
