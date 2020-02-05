@@ -37,11 +37,23 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-md-3 col-sm-12 col-xs-12">
+                    <div class="panel panel-primary text-center no-border bg-color-brown">
+                        <div class="panel-body">
+                            <i class="material-icons material-icons-5x">library_books</i>
+                            <h3 id="jumlah-data-uji"><?php echo $total_testdata; ?></h3>
+                        </div>
+                        <div class="panel-footer back-footer-brown">
+                            Jumlah Berita Data Uji
+                        </div>
+                    </div>
+                </div>
             
                 <div class="col-md-3 col-sm-12 col-xs-12">
                     <div class="panel panel-primary text-center no-border bg-color-green">
                         <div class="panel-body">
-                            <i class="material-icons material-icons-5x">thumb_up</i>
+                            <i class="material-icons material-icons-5x">library_books</i>
                             <h3 id="jumlah-data-latih-positif"><?php echo $pol_traindata; ?></h3>
                         </div>
                         <div class="panel-footer back-footer-green">
@@ -53,7 +65,7 @@
                 <div class="col-md-3 col-sm-12 col-xs-12">
                     <div class="panel panel-primary text-center no-border bg-color-red">
                         <div class="panel-body">
-                            <i class="material-icons material-icons-5x">thumb_down</i>
+                            <i class="material-icons material-icons-5x">library_books</i>
                             <h3 id="jumlah-data-latih-negatif"><?php echo $ola_traindata; ?></h3>
                         </div>
                         <div class="panel-footer back-footer-red">
@@ -68,7 +80,7 @@
                             <i class="material-icons material-icons-5x">library_books</i>
                             <h3 id="jumlah-data-latih-kesehatan"><?php echo $kes_traindata; ?></h3>
                         </div>
-                        <div class="panel-footer back-footer-red">
+                        <div class="panel-footer back-footer-blue">
                             Berita Data Latih Kesehatan
                         </div>
                     </div>
@@ -80,7 +92,7 @@
                             <i class="material-icons material-icons-5x">library_books</i>
                             <h3 id="jumlah-data-latih-pendidikan"><?php echo $pen_traindata; ?></h3>
                         </div>
-                        <div class="panel-footer back-footer-red">
+                        <div class="panel-footer back-footer-green">
                             Berita Data Latih Pendidikan
                         </div>
                     </div>
@@ -93,7 +105,7 @@
                             <h3 id="jumlah-data-latih-entertainment"><?php echo $ent_traindata; ?></h3>
                         </div>
                         <div class="panel-footer back-footer-red">
-                            Berita Data Latih Entertainment
+                             Data Latih Entertainment
                         </div>
                     </div>
                 </div>
@@ -104,7 +116,7 @@
                             <i class="material-icons material-icons-5x">library_books</i>
                             <h3 id="jumlah-data-latih-bisnis"><?php echo $bis_traindata; ?></h3>
                         </div>
-                        <div class="panel-footer back-footer-red">
+                        <div class="panel-footer back-footer-blue">
                             Berita Data Latih Bisnis
                         </div>
                     </div>
@@ -116,20 +128,8 @@
                             <i class="material-icons material-icons-5x">library_books</i>
                             <h3 id="jumlah-data-latih-teknologi"><?php echo $tek_traindata; ?></h3>
                         </div>
-                        <div class="panel-footer back-footer-red">
+                        <div class="panel-footer back-footer-green">
                             Berita Data Latih Teknologi
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-12 col-xs-12">
-                    <div class="panel panel-primary text-center no-border bg-color-brown">
-                        <div class="panel-body">
-                            <i class="material-icons material-icons-5x">library_books</i>
-                            <h3 id="jumlah-data-uji"><?php echo $total_testdata; ?></h3>
-                        </div>
-                        <div class="panel-footer back-footer-brown">
-                            Jumlah Berita Data Uji
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
 				<div class="col-md-6 col-sm-12 col-xs-12">
 					<div class="panel panel-default text-center no-border">
 						<div class="panel-heading-small">
-							Perbandingan Data Latih Politik dan Olahraga
+							Perbandingan Semua Data Latih
 						</div>
 						<div class="panel-body">
 							<div id="pos-neg-chart" class="chart"></div>

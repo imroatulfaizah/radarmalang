@@ -74,48 +74,48 @@
 </div>
 
 
-<div class="intro" id="intro">
+<!-- <div class="intro" id="intro">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 col-sm-4 intro-container">
 				<i class="icon material-icons">library_books</i>
 				<div class="intro-wrapper">
-					<p class="intro-number" data-stop="<?php echo $pol_traindata;?>"><?php echo $ola_traindata;?></p>
+					<p class="intro-number" data-stop=" echo $pol_traindata;?>"> echo $ola_traindata;?></p>
 					<p class="intro-text">Berita Politik</p>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4 intro-container">
 				<i class="icon material-icons">library_books</i>
 				<div class="intro-wrapper">
-					<p class="intro-number" data-stop="<?php echo $ola_traindata;?>"><?php echo $ola_traindata;?></p>
+					<p class="intro-number" data-stop=" echo $ola_traindata;?>"> echo $ola_traindata;?></p>
 					<p class="intro-text">Berita Olahraga</p>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4 intro-container">
 				<i class="icon material-icons">library_books</i>
 				<div class="intro-wrapper">
-					<p class="intro-number" data-stop="<?php echo $kes_traindata;?>"><?php echo $kes_traindata;?></p>
+					<p class="intro-number" data-stop="< echo $kes_traindata;?>"> echo $kes_traindata;?></p>
 					<p class="intro-text">Berita Kesehatan</p>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4 intro-container">
 				<i class="icon material-icons">library_books</i>
 				<div class="intro-wrapper">
-					<p class="intro-number" data-stop="<?php echo $pen_traindata;?>"><?php echo $pen_traindata;?></p>
+					<p class="intro-number" data-stop="< echo $pen_traindata;?>">< echo $pen_traindata;?></p>
 					<p class="intro-text">Berita Pendidikan</p>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4 intro-container">
 				<i class="icon material-icons">library_books</i>
 				<div class="intro-wrapper">
-					<p class="intro-number" data-stop="<?php echo $ent_traindata;?>"><?php echo $ent_traindata;?></p>
+					<p class="intro-number" data-stop="< echo $ent_traindata;?>">< echo $ent_traindata;?></p>
 					<p class="intro-text">Berita Entertainment</p>
 				</div>
 			</div>
 			<div class="col-md-4 col-sm-4 intro-container">
 				<i class="icon material-icons">library_books</i>
 				<div class="intro-wrapper">
-					<p class="intro-number" data-stop="<?php echo $bis_traindata;?>"><?php echo $bis_traindata;?></p>
+					<p class="intro-number" data-stop="< echo $bis_traindata;?>"><echo $bis_traindata;?></p>
 					<p class="intro-text">Berita Bisnis</p>
 				</div>
 			</div>
@@ -126,13 +126,13 @@
 			<div class="col-md-4 col-sm-4 intro-container">
 				<i class="icon material-icons">library_books</i>
 				<div class="intro-wrapper">
-					<p class="intro-number" data-stop="<?php echo $tek_traindata;?>"><?php echo $tek_traindata;?></p>
+					<p class="intro-number" data-stop="< echo $tek_traindata;?>">< echo $tek_traindata;?></p>
 					<p class="intro-text">Berita Teknologi</p>
 				</div>
 			</div>
 
-			<!--CHART-->
-			<div class="row">
+			<CHART-->
+			<!-- <div class="row">
 				<div class="col-md-6 col-sm-12 col-xs-12">
 					<div class="panel panel-default text-center no-border">
 						<div class="panel-heading-small">
@@ -153,12 +153,12 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<!--AKHIR DARI CHART-->
+			</div> 
+			AKHIR DARI CHART
 
 		</div>
 	</div>
-</div>
+</div> -->
 
 <!--KLASIFIKASI BERITA-->
 <div class="analisis" id="analisis">

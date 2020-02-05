@@ -48,7 +48,7 @@
 						</div>
 					</div>
 					<!-- FOOTER-->
-					<footer><p class="text-center copyright">&copyCopyright Sentiment Analysis.id <br> All right reserved.</a></p></footer>
+					<footer><p class="text-center copyright">&copyCopyright Klasifikasi Berita <br> Imroatul Faizah.</a></p></footer>
 				</div>
 			</div>
 		</div>

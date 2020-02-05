@@ -950,6 +950,7 @@ class M_Classifier extends CI_Model{
 	public function visitor_clean_space($stemmed_berita){
 		$all_terms = preg_replace('/\s+/', ' ', $stemmed_berita);
 		$array_terms = explode(" ",$all_terms);
+		//var_dump($array_terms);
 		
 		return $array_terms;
 	}
@@ -1066,9 +1067,10 @@ class M_Classifier extends CI_Model{
 		//masukkan ke array results
 		$array_results = array($pol_polt_prob_visitor,$ola_polt_prob_visitor,$kes_polt_prob_visitor,
 		$pen_polt_prob_visitor,$ent_polt_prob_visitor,$bis_polt_prob_visitor,
-		$tek_polt_prob_visitor,$best_class); 
+		$tek_polt_prob_visitor,$best_class, $array_terms); 
 	
 		return $array_results;
+		echo json_encode($array_terms);
 	}
 }
 ?>

@@ -20,7 +20,7 @@ function extract_review(){
 		error: function(){
 			$('#loader-wrapper').removeClass("loader");
 			$('#analisis-wrapper').show();
-			alert("Tidak dapat memroses hasil Klasifikasi.");
+			alert("Tidak dapat memproses hasil Klasifikasi.");
 		}
 	});
 }
@@ -34,6 +34,8 @@ function print_analysis_contents(contents){
 	$("#bis-prob").append(contents[5]);
 	$("#tek-prob").append(contents[6]);
 	$("#visitor-sentimen").append(contents[7]);
+	$("#term").append(contents[8]);
+	
 	console.log(contents);
 }
 

@@ -43,5 +43,6 @@ class Visitor extends CI_Controller
 		
 		echo json_encode($analysis_results);
 	}
+	
 }
 ?>

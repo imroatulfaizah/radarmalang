@@ -55,4 +55,10 @@
 			<th><span id="visitor-sentimen" style="font-size: 24px;"></span></th>
 		</table>
 	</div>
+	<!-- <div class="alert alert-info">
+		<table class="borderless">
+			<tr>Term</tr>
+			<tr><td id="term"></td></tr>
+		</table>
+	</div> -->
 </div>
