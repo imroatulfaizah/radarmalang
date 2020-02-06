@@ -34,8 +34,10 @@ function print_analysis_contents(contents){
 	$("#bis-prob").append(contents[5]);
 	$("#tek-prob").append(contents[6]);
 	$("#visitor-sentimen").append(contents[7]);
-	$("#term").append(contents[8]);
-	
+	//$("#term").append(contents[8]);
+	$.each(contents[8], function(index, value){
+		$("#term").append(index + " " + value + '</br>');
+	});
 	console.log(contents);
 }
 

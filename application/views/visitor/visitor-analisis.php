@@ -57,14 +57,11 @@
 	</div>
 	<div class="alert alert-info">
 		<table class="borderless">
-			<tr>Term</tr>
+		<tr>
+            <th>No.</th>
+            <th>Term</th>
 			<tr><td></td></tr>
-			<script>
-			function tampilkan_nilai_form(){
-    var nilai_form=document.getElementById("term").value;
-    document.getElementById("hasil").innerHTML=nilai_form;
-}</script>
-<td id="term"></td>
+			<td id="term"></td>
 		</table>
 	</div>
 </div>
