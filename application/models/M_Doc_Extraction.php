@@ -864,6 +864,21 @@ class M_Doc_Extraction extends CI_Model{
 
 	}
 
+	public function insertterm_klasifikasi($judul,$isi,$slug,$gambar){
+		// $judul = $this->$judul;
+		// $isi = $this->$isi;
+		// $kategori = $this->$kategori;
+		// $jenis_data = $this->$jenis_data;
+		$hasiltoken = $this->tokenizing($isi);
+		$hasilfilter = $this->filtering($hasiltoken);
+		$hasilstemming = $this->stemming($hasilfilter); 
+
+		//insert ke database
+		$this->db->insert('sa_post',['post_judul'=>$judul,'post_isi'=>$isi,'post_slug'=>$slug,'post_image'=>$gambar,
+		'term_tokenized'=>$hasiltoken,'term_filtered'=>$hasilfilter,'term_stemmed'=>$hasilstemming]);
+
+	}
+
 	public function editterm($id_berita,$isi_berita){
 
 		$hasiltoken = $this->tokenizing($isi_berita);

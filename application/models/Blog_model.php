@@ -17,12 +17,32 @@ class Blog_model extends CI_Model{
 		return $hsl;
     }
     
-    function get_teknologi(){ 
-		$hsl=$this->db->query("SELECT * FROM sa_post WHERE kategori_datauji='TEKNOLOGI'");
-		return $hsl;
-    }
-    function get_olahraga(){ 
-		$hsl=$this->db->query("SELECT * FROM sa_post WHERE kategori_datauji='OLAHRAGA'");
+	function get_politik(){ 
+		$hsl=$this->db->query("SELECT * FROM `sa_post` INNER JOIN sa_klasifikasi ON sa_post.post_id = sa_klasifikasi.post_id WHERE kategori_datauji = 'POLITIK'");
 		return $hsl;
 	}
+	function get_olahraga(){ 
+		$hsl=$this->db->query("SELECT * FROM `sa_post` INNER JOIN sa_klasifikasi ON sa_post.post_id = sa_klasifikasi.post_id WHERE kategori_datauji = 'OLAHRAGA'");
+		return $hsl;
+	}
+	function get_kesehatan(){ 
+		$hsl=$this->db->query("SELECT * FROM `sa_post` INNER JOIN sa_klasifikasi ON sa_post.post_id = sa_klasifikasi.post_id WHERE kategori_datauji = 'KESEHATAN'");
+		return $hsl;
+    }
+	function get_pendidikan(){ 
+		$hsl=$this->db->query("SELECT * FROM `sa_post` INNER JOIN sa_klasifikasi ON sa_post.post_id = sa_klasifikasi.post_id WHERE kategori_datauji = 'PENDIDIKAN'");
+		return $hsl;
+	}
+	function get_entertainment(){ 
+		$hsl=$this->db->query("SELECT * FROM `sa_post` INNER JOIN sa_klasifikasi ON sa_post.post_id = sa_klasifikasi.post_id WHERE kategori_datauji = 'ENTERTAINMENT'");
+		return $hsl;
+	}
+	function get_bisnis(){ 
+		$hsl=$this->db->query("SELECT * FROM `sa_post` INNER JOIN sa_klasifikasi ON sa_post.post_id = sa_klasifikasi.post_id WHERE kategori_datauji = 'BISNIS'");
+		return $hsl;
+	}
+	function get_teknologi(){ 
+		$hsl=$this->db->query("SELECT * FROM `sa_post` INNER JOIN sa_klasifikasi ON sa_post.post_id = sa_klasifikasi.post_id WHERE kategori_datauji = 'TEKNOLOGI'");
+		return $hsl;
+    }
 }

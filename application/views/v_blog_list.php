@@ -40,7 +40,7 @@
                     <a class="page-scroll" href="<?php echo base_url().'blog/teknologi'?>">Teknologi</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#about">Politik</a>
+                    <a class="page-scroll" href="<?php echo base_url().'blog/politik'?>">Politik</a>
                 </li>
 				<li>
                     <a class="page-scroll" href="#login">Pendidikan</a>

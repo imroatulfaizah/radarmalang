@@ -25,6 +25,7 @@ function extract_review(){
 	});
 }
 
+
 function print_analysis_contents(contents){
 	$("#pol-prob").append(contents[0]);
 	$("#ola-prob").append(contents[1]);

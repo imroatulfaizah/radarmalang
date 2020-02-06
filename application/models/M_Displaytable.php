@@ -9,6 +9,11 @@ class M_Displaytable extends CI_Model
 		$this->db->from('sa_berita');
 		return $this->db->get()->row_array();
 	}
+	public function fetchpost($id){
+		$this->db->where('post_id', $id);
+		$this->db->from('sa_post');
+		return $this->db->get()->row_array();
+	}
 
 	public function fetchkatadasar($id){
 		$this->db->where('id_katadasar', $id);
@@ -57,6 +62,29 @@ class M_Displaytable extends CI_Model
 		$this->db->limit($length, $start);
 		$data = $this->db->get()->result_array();
 		$total = $this->db->count_all_results('sa_berita');
+		return [
+			"data" => $data,
+			"total" => $total,
+			"result" => $totalfilter
+		];	
+	}
+
+	public function displaytabelklasifikasi($start, $length, $search_query){
+		$this->db->like('post_judul', $search_query);
+		$this->db->from('sa_post');
+		// $this->db->where('jenis_data','DATA UJI');
+		$this->db->join('sa_klasifikasi', 'sa_klasifikasi.post_id = sa_post.post_id');
+		$this->db->order_by('post_judul','ASC');
+		$totalfilter = $this->db->count_all_results();
+
+		$this->db->like('post_judul', $search_query);
+		$this->db->from('sa_post');
+		// $this->db->where('jenis_data','DATA UJI');
+		$this->db->join('sa_klasifikasi', 'sa_klasifikasi.post_id = sa_post.post_id');
+		$this->db->order_by('post_judul','ASC');
+		$this->db->limit($length, $start);
+		$data = $this->db->get()->result_array();
+		$total = $this->db->count_all_results('sa_post');
 		return [
 			"data" => $data,
 			"total" => $total,
