@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand page-scroll" href="#top-page">KLASIFIKASI BERITA RADAR MALANG</a>
+            <a class="navbar-brand page-scroll" href="<?php echo base_url().'blog/lists'?>">KLASIFIKASI BERITA RADAR MALANG</a>
         </div>
 
         <div class="collapse navbar-collapse navbar-right sa-navbar" id="navbar-collapse">
@@ -56,11 +56,24 @@
                 </li>
             </ul>
         </div>
-    </div>
+	</div>
+	
+
 
 </nav><!--AKHIR DARI NAVBAR -->
+<div class="about-title">
+					<h3>TENTANG NAIVE BAYES</h3>
+					<h3>TENTANG NAIVE BAYES</h3>
+				</div>
 
+				<div>
+					<div class="modal-content">
+						<input type="text" id="keyword">
+						<button type="button" id="btn-search">SEARCH</button>
+					</div>
+				</div>
 	<div class="container">
+	
 		<?php
 			function limit_words($string, $word_limit){
                 $words = explode(" ",$string);
@@ -75,8 +88,12 @@
 		</div>
 		<?php endforeach;?>
     </div>
-    <div></div>
-    
+	<div></div>
+	<div>
+		<div class="modal-content">
+			<h3></h3>
+		</div>
+	</div>
     <!--TENTANG-->
 <div class="about" id="about">
     <div class="container about-container">
@@ -108,7 +125,7 @@
 					<h3>TENTANG NAIVE BAYES</h3>
 				</div>
 				<div class="about-wrapper about-us">
-					<p>Sistem Klasifikasi Berita ini menggunakan metode Naive Bayes untuk menghitung probabilitas review film yang diberikan. 
+					<p>Sistem Klasifikasi Berita ini menggunakan metode Naive Bayes untuk mengklasifikasikan berita di Radar Malang. 
 					Deskripsi metode Naive Bayes lebih lengkap dapat dilihat di <a class="link-bootstrap"href="https://en.wikipedia.org/wiki/Naive_Bayes_classifier">tautan berikut.</a></p>
 				</div>
 			</div>

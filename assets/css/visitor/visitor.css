@@ -26,7 +26,7 @@ body {
 }
 
 .navbar-default .navbar-brand {
-    color: #ecf0f1;
+    color: #34465d;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -194,6 +194,7 @@ body {
 .intro-container{
 	text-align: center;
 	border-right: solid 1px rgba(255,255,255,0.5);
+	
 }
 
 .intro-container:last-of-type{
