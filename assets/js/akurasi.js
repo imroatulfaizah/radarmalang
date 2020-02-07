@@ -104,8 +104,8 @@ function print_matrix_contents(matrix){
 	$("#egd").append(matrix[49]);
 	$("#ege").append(matrix[50]);
 	$("#egf").append(matrix[51]);
-	$("#acc_politik").append(matrix[52]);
-	$("#acc_politik_persen").append((matrix[52]*100).toFixed(2));
+	// $("#acc_politik").append(matrix[52]);
+	// $("#acc_politik_persen").append((matrix[52]*100).toFixed(2));
 	$("#akurasi-percentage").append((matrix[8]*100).toFixed(2)); //error rate
 	
 }

@@ -946,7 +946,7 @@ class M_Classifier extends CI_Model{
 		//eab - eag ditambah
 		$total_data_politik = $tpa + $eab + $eac + $ead + $eae + $eaf + $eag;
 
-		$acc_politik = $tpa/$total_data_politik;
+		//$acc_politik = $tpa/$total_data_politik;
 		$akurasi = $totaltp/$total_datauji; //AKURASI :(true positives+true negatives)/total data uji
 		$error_rate = 1- $akurasi; //ERROR-RATE : 1 - akurasi (tingkat kesalahan sistem)
 		//$ppv = $true_positives/($true_positives+$false_positives); //posITIVE PREDICTION VALUE /PRESISI : true positives/(true positives+false positives)
@@ -957,7 +957,7 @@ class M_Classifier extends CI_Model{
 		$array_data_matriks = array($total_datauji, $tpa, $tpb, $tpc, $tpd, $tpe, $tpf, $tpg, $akurasi, $error_rate, $eab, $eac, $ead, $eae, $eaf, $eag, $eba,	$ebc, $ebd, $ebe,
 		$ebf, $ebg, $eca, $ecb, $ecd, $ece, $ecf, $ecg,	$eda, $edb, $edc, $ede,
 		$edf, $edg, $eea, $eeb, $eec, $eed, $eef, $eeg, $efa, $efb, $efc, $efd, $efe, $efg,
-		$ega, $egb, $egc, $egd, $ege, $egf, $acc_politik);
+		$ega, $egb, $egc, $egd, $ege, $egf);
 		 return $array_data_matriks;
 	}
 	

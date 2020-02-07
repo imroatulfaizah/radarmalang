@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="<?=base_url()?>assets/css/visitor/font-awesome.min.css">
 </head>
 <body>
+
 	<div class="container">
 		<div class="col-md-8 col-md-offset-2">
 			<h2>MY BLOG</h2><hr/>
