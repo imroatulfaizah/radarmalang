@@ -120,8 +120,9 @@ class Blog extends CI_Controller{
 		echo json_encode($analysis_results);
 	}
 
-	function detail($slug){ //fungsi untuk menampilkan detail artikel
-		$data=$this->blog_model->get_post_by_slug($slug);
+	function detail($post_slug){ //fungsi untuk menampilkan detail artikel
+		$data=$this->blog_model->get_post_by_slug($post_slug);
+		$this->load->view('v_blog_detail',$x);
 		if($data->num_rows() > 0){ // validasi jika data ditemukan
 			$x['data']= $data;
 			$this->load->view('v_blog_detail',$x);

@@ -7,8 +7,8 @@ class Blog_model extends CI_Model{
 		return $hsl;
 	}
 	//fungsi untuk menampilkan data post berdasarkan slug
-	function get_post_by_slug($slug){ 
-		$hsl=$this->db->query("SELECT * FROM sa_post WHERE post_slug='$slug'");
+	function get_post_by_slug($post_slug){ 
+		$hsl=$this->db->query("SELECT * FROM sa_post WHERE post_slug='$post_slug'");
 		return $hsl;
 	}
 	//funsgi untuk menampilkan semua post pada list
