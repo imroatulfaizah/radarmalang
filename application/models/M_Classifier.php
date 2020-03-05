@@ -503,11 +503,12 @@ class M_Classifier extends CI_Model{
 	}
 
 	public function all_test_docs2(){
-		$this->db->select('post_id, term_stemmed');
-		$this->db->from('sa_post');
-		//$this->db->where('jenis_data','DATA UJI');
+		$this->db2 = $this->load->database('db2', TRUE);
+		$this->db2->select('id, term_stemmed');
+		$this->db2->from('wp_posts');
+		$this->db2->where('post_type','post');
 		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
-		$array_test_docs2 = $this->db->get()->result_array();
+		$array_test_docs2 = $this->db2->get()->result_array();
 		return $array_test_docs2;
 	}
 	
@@ -567,6 +568,24 @@ class M_Classifier extends CI_Model{
 			$best_class = "BISNIS";
 		} else if($teknologi>$politik && $teknologi>$olahraga && $teknologi>$kesehatan && $teknologi>$pendidikan && $teknologi>$entertainment && $teknologi>$bisnis){
 			$best_class = "TEKNOLOGI";
+		}
+		return $best_class;
+	}
+
+	public function best_class_wp($politik,$olahraga,$kesehatan,$pendidikan,$entertainment,$bisnis,$teknologi){
+		$best_class = "1";
+		if($olahraga>$politik && $olahraga>$kesehatan && $olahraga>$pendidikan && $olahraga>$entertainment && $olahraga>$bisnis && $olahraga>$teknologi){
+			$best_class = "2";
+		} else if($kesehatan>$politik && $kesehatan>$olahraga && $kesehatan>$pendidikan && $kesehatan>$entertainment && $kesehatan>$bisnis && $kesehatan>$teknologi){
+			$best_class = "3";
+		} else if($pendidikan>$politik && $pendidikan>$olahraga && $pendidikan>$kesehatan && $pendidikan>$entertainment && $pendidikan>$bisnis && $kesehatan>$teknologi){
+			$best_class = "4";
+		} else if($entertainment>$politik && $entertainment>$olahraga && $entertainment>$kesehatan && $entertainment>$pendidikan && $entertainment>$bisnis && $entertainment>$teknologi){
+			$best_class = "5";
+		} else if($bisnis>$politik && $bisnis>$olahraga && $bisnis>$kesehatan && $bisnis>$pendidikan && $bisnis>$entertainment && $bisnis>$teknologi){
+			$best_class = "6";
+		} else if($teknologi>$politik && $teknologi>$olahraga && $teknologi>$kesehatan && $teknologi>$pendidikan && $teknologi>$entertainment && $teknologi>$bisnis){
+			$best_class = "7";
 		}
 		return $best_class;
 	}
@@ -1115,7 +1134,7 @@ class M_Classifier extends CI_Model{
 		
 		
 		foreach($array_test_docs2 as $test_doc){ //loop untuk semua berita data uji
-			$id = $test_doc["post_id"];
+			$id = $test_doc["id"];
 			$terms_in_doc = explode(" ", $test_doc["term_stemmed"]);
 			$total_pol_likelihood = 0;
 			$total_ola_likelihood = 0;
@@ -1199,10 +1218,10 @@ class M_Classifier extends CI_Model{
 			$tek_polt_prob = $array_prob["tek_prob"];
 			
 			//ambil kelas terbaik (kelas dengan polterior probability tertinggi)
-			$best_class= $this->best_class($pol_polt_prob,$ola_polt_prob, $kes_polt_prob, $pen_polt_prob, $ent_polt_prob, $bis_polt_prob, $tek_polt_prob);
+			$best_class= $this->best_class_wp($pol_polt_prob,$ola_polt_prob, $kes_polt_prob, $pen_polt_prob, $ent_polt_prob, $bis_polt_prob, $tek_polt_prob);
 			
 			//masukkan ke array results
-			$array_results[] = array("post_id"=>$id,"pol_polt_prob"=>$pol_polt_prob,
+			$array_results[] = array("id"=>$id,"pol_polt_prob"=>$pol_polt_prob,
 			"ola_polt_prob"=>$ola_polt_prob, "kes_polt_prob"=>$kes_polt_prob,
 			"pen_polt_prob"=>$pen_polt_prob, "ent_polt_prob"=>$ent_polt_prob,
 			"bis_polt_prob"=>$bis_polt_prob, "tek_polt_prob"=>$tek_polt_prob,
@@ -1214,9 +1233,17 @@ class M_Classifier extends CI_Model{
 	}
 	//klasifikasi terbaru
 	public function insert_klasifikasi(){
-		$this->db->truncate('sa_klasifikasi');
+		$this->db2 = $this->load->database('db2', TRUE);
+		$this->db2->truncate('wp_klasifikasi');
 		$data = $this->naive_bayes_klasifikasi();
-		$this->db->insert_batch('sa_klasifikasi',$data);
+		$this->db2->insert_batch('wp_klasifikasi',$data);
+		// $this->db2->insert_batch('wp_term_relationships',$data);
 	}
+	// public function update_klasifikasi(){
+	// 	$this->db2 = $this->load->database('db2', TRUE);
+	// 	$data = $this->naive_bayes_klasifikasi();
+	// 	$this->db2->insert_batch('wp_klasifikasi',$data);
+	// 	$this->db2->insert_batch('wp_term_relationships',$data);
+	// }
 }
 ?>

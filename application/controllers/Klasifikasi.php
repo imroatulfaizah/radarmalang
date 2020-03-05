@@ -19,6 +19,7 @@ class Klasifikasi extends CI_Controller{
 	
 	public function insert_klasifikasi(){
 		$this->M_Classifier->insert_klasifikasi();
+		$this->M_Classifier->update_klasifikasi();
 	}
 	
 	public function tabeltest(){
