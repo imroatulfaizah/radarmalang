@@ -14,9 +14,18 @@
 		<div class="col-md-8 col-md-offset-2">
 			<h2>MY BLOG</h2><hr/>
 			<form action="<?php echo base_url().'blog/simpan_post'?>" method="post" enctype="multipart/form-data">
-	            <input type="text" name="judul" class="form-control" placeholder="Judul" required/><br/>
-	            <textarea  id="visitor-review" name="visitor-review" class="form-control" required></textarea><br/>
-	            <input type="file" name="filefoto" required><br>
+				<input type="text" name="post_author" class="form-control" placeholder="post_author" required/><br/>
+				<input type="text" name="post_title" class="form-control" placeholder="post_title" required/><br/>
+				<!-- visitor-review aku ganti jadi post_content -->
+	            <textarea  id="post_content" name="post_content" class="form-control" required></textarea><br/>
+	            <!-- <input type="file" name="filefoto" required><br> -->
+				<div class="form-group">
+                          <label for="post_status">Post Status</label>
+                          <select class="form-control text-left" name="post_status">
+                              <option value="publish">PUBLISH</option>
+                              <option value="draft">DRAFT</option>
+                          </select>
+                      </div>
 	            <button id="visitor-btn" class="btn btn-success" type="submit">POST</button>
             </form>
 		</div>

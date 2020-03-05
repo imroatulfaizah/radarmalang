@@ -2,8 +2,9 @@
 class Blog_model extends CI_Model{
 
 	//fungsi untuk menyimpan data artikel kedalam database
-	function simpan_post($judul,$isi,$slug,$gambar){ 
-		$hsl=$this->db->query("INSERT INTO sa_post (post_judul,post_isi,post_slug,post_image) VALUES ('$judul','$isi','$slug','$gambar')");
+	function simpan_post($author,$judul,$isi,$status){ 
+		$db2 = $this->load->database('db2', TRUE);
+		$hsl=$this->db2->query("INSERT INTO wp_posts (post_author,post_content,post_title,post_status) VALUES ('$judul','$isi','$slug','$gambar')");
 		return $hsl;
 	}
 	//fungsi untuk menampilkan data post berdasarkan slug

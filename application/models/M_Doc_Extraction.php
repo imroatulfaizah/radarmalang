@@ -1,4 +1,5 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Doc_Extraction extends CI_Model{
@@ -7,6 +8,7 @@ class M_Doc_Extraction extends CI_Model{
 	private $arraytoken = array();
 	private $arrayfiltered = array();
 	private $arraystemmed = array();
+	
 
 	/*------------TOKENIZING------------*/
 	public function tokenizing($review){
@@ -20,11 +22,14 @@ class M_Doc_Extraction extends CI_Model{
 
 	/*------------FILTERING------------*/
 	public function filtering($hasiltoken){
+		
 		//ubah string ke array
 		$this->arraytoken = explode(" ",$hasiltoken);
 
 		//ambil stop words dan diubah ke array
+		$this->db = $this->load->database('default', TRUE); 
 		$this->db->select('kata_stopwords');
+		
 		$this->db->from('sa_stopwords');
 		$arraystopwords = $this->db->get()->result_array();
 
@@ -863,8 +868,11 @@ class M_Doc_Extraction extends CI_Model{
 		'term_tokenized'=>$hasiltoken,'term_filtered'=>$hasilfilter,'term_stemmed'=>$hasilstemming]);
 
 	}
-
-	public function insertterm_klasifikasi($judul,$isi,$slug,$gambar){
+	
+	public function insertterm_klasifikasi($author,$judul,$isi,$status){
+		
+		
+		//$db2 = $this->load->database('db2', TRUE);
 		// $judul = $this->$judul;
 		// $isi = $this->$isi;
 		// $kategori = $this->$kategori;
@@ -872,9 +880,10 @@ class M_Doc_Extraction extends CI_Model{
 		$hasiltoken = $this->tokenizing($isi);
 		$hasilfilter = $this->filtering($hasiltoken);
 		$hasilstemming = $this->stemming($hasilfilter); 
-
+		
 		//insert ke database
-		$this->db->insert('sa_post',['post_judul'=>$judul,'post_isi'=>$isi,'post_slug'=>$slug,'post_image'=>$gambar,
+		$this->db2 = $this->load->database('db2', TRUE);
+		$this->db2->insert('wp_posts',['post_author'=>$author,'post_content'=>$isi,'post_title'=>$judul,'post_status'=>$status,
 		'term_tokenized'=>$hasiltoken,'term_filtered'=>$hasilfilter,'term_stemmed'=>$hasilstemming]);
 
 	}
