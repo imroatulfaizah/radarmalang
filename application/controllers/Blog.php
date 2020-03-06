@@ -63,7 +63,7 @@ class Blog extends CI_Controller{
 
 				$this->M_Doc_Extraction->insertterm_klasifikasi($author,$judul,$isi,$status);
 				//$this->blog_model->simpan_post($judul,$isi,$slug,$gambar,$kategori_datauji); //simpan artikel ke database
-				redirect('blog/post');
+				redirect('blog');
 				//redirect('blog/lists');
 		// 	}else{
 		// 		//redirect ke blog jika gambar gagal upload

@@ -1231,6 +1231,123 @@ class M_Classifier extends CI_Model{
 		return $array_results;
 		//var_dump($array_results);
 	}
+	public function naive_bayes_wp(){
+		$array_results=array();
+		$vocab = $this->all_vocabs();
+		$pol_terms_count = count($this->array_pol_terms()); //jumlah semua term di data latih politik
+		$ola_terms_count = count($this->array_ola_terms()); //jumlah semua term di data latih olahraga
+		$kes_terms_count = count($this->array_kes_terms()); //jumlah semua term di data latih kesehatan
+		$pen_terms_count = count($this->array_pen_terms()); //jumlah semua term di data latih pendidikan
+		$ent_terms_count = count($this->array_ent_terms()); //jumlah semua term di data latih entertainment
+		$bis_terms_count = count($this->array_bis_terms()); //jumlah semua term di data latih bisnis
+		$tek_terms_count = count($this->array_tek_terms()); //jumlah semua term di data latih teknologi
+
+		$vocab_count = count($vocab); //jumlah semua term di vocabulary
+		$array_test_docs2 = $this->all_test_docs2(); //ambil semua berita data uji
+		$pol_prior_prob = log($this->pol_prior_prob()); //log dari prior probability kelas politik
+		$ola_prior_prob = log($this->ola_prior_prob()); //log dari prior probability kelas olahraga
+		$kes_prior_prob = log($this->kes_prior_prob()); //log dari prior probability kelas kesehatan
+		$pen_prior_prob = log($this->pen_prior_prob()); //log dari prior probability kelas pendidikan
+		$ent_prior_prob = log($this->ent_prior_prob()); //log dari prior probability kelas entertainment
+		$bis_prior_prob = log($this->bis_prior_prob()); //log dari prior probability kelas bisnis
+		$tek_prior_prob = log($this->tek_prior_prob()); //log dari prior probability kelas teknologi
+		
+		
+		foreach($array_test_docs2 as $test_doc){ //loop untuk semua berita data uji
+			$id = $test_doc["id"];
+			$terms_in_doc = explode(" ", $test_doc["term_stemmed"]);
+			$total_pol_likelihood = 0;
+			$total_ola_likelihood = 0;
+			$total_kes_likelihood = 0;
+			$total_pen_likelihood = 0;
+			$total_ent_likelihood = 0;
+			$total_bis_likelihood = 0;
+			$total_tek_likelihood = 0;
+			
+			foreach($terms_in_doc as $term){
+				$pol_likelihood = 0;
+				$ola_likelihood = 0;
+				$kes_likelihood = 0;
+				$pen_likelihood = 0;
+				$ent_likelihood = 0;
+				$bis_likelihood = 0;
+				$tek_likelihood = 0;
+				$found = false;
+				
+				for($i=0; $i < $vocab_count;$i++){
+					if($vocab[$i]["term"] == $term){
+						$pol_likelihood = $vocab[$i]["pol_likelihood"];
+						$ola_likelihood = $vocab[$i]["ola_likelihood"];
+						$kes_likelihood = $vocab[$i]["kes_likelihood"];
+						$pen_likelihood = $vocab[$i]["pen_likelihood"];
+						$ent_likelihood = $vocab[$i]["ent_likelihood"];
+						$bis_likelihood = $vocab[$i]["bis_likelihood"];
+						$tek_likelihood = $vocab[$i]["tek_likelihood"];
+						$found= true;
+						break;
+					}
+				}
+				if(!$found){
+					$pol_likelihood = $this->likelihood(0,$pol_terms_count,$vocab_count);
+					$ola_likelihood = $this->likelihood(0,$ola_terms_count,$vocab_count);
+					$kes_likelihood = $this->likelihood(0,$kes_terms_count,$vocab_count);
+					$pen_likelihood = $this->likelihood(0,$pen_terms_count,$vocab_count);
+					$ent_likelihood = $this->likelihood(0,$ent_terms_count,$vocab_count);
+					$bis_likelihood = $this->likelihood(0,$bis_terms_count,$vocab_count);
+					$tek_likelihood = $this->likelihood(0,$tek_terms_count,$vocab_count);
+				}
+				
+				$total_pol_likelihood += $pol_likelihood;
+				$total_ola_likelihood += $ola_likelihood;
+				$total_kes_likelihood += $kes_likelihood;
+				$total_pen_likelihood += $pen_likelihood;
+				$total_ent_likelihood += $ent_likelihood;
+				$total_bis_likelihood += $bis_likelihood;
+				$total_tek_likelihood += $tek_likelihood;				
+			}
+			
+			//polterior probability kelas politif dokumen C = log(prior probability) + total likelihood
+			$pol_polt_prob = $pol_prior_prob + $total_pol_likelihood;
+			
+			//polterior probability kelas olaatif dokumen C = log(prior probability) + total likelihood
+			$ola_polt_prob = $ola_prior_prob + $total_ola_likelihood;
+
+			//polterior probability kelas olaatif dokumen C = log(prior probability) + total likelihood
+			$kes_polt_prob = $kes_prior_prob + $total_kes_likelihood;
+
+			//polterior probability kelas olaatif dokumen C = log(prior probability) + total likelihood
+			$pen_polt_prob = $pen_prior_prob + $total_pen_likelihood;
+
+			//polterior probability kelas olaatif dokumen C = log(prior probability) + total likelihood
+			$ent_polt_prob = $ent_prior_prob + $total_ent_likelihood;
+
+			//polterior probability kelas olaatif dokumen C = log(prior probability) + total likelihood
+			$bis_polt_prob = $bis_prior_prob + $total_bis_likelihood;
+
+			//polterior probability kelas olaatif dokumen C = log(prior probability) + total likelihood
+			$tek_polt_prob = $tek_prior_prob + $total_tek_likelihood;
+			
+			//normalisasi log polterior probability
+			$array_prob = $this->normalize_log($pol_polt_prob,$ola_polt_prob, $kes_polt_prob, $pen_polt_prob, $ent_polt_prob, $bis_polt_prob, $tek_polt_prob);
+			$pol_polt_prob = $array_prob["pol_prob"];
+			$ola_polt_prob = $array_prob["ola_prob"];
+			$kes_polt_prob = $array_prob["kes_prob"];
+			$pen_polt_prob = $array_prob["pen_prob"];
+			$ent_polt_prob = $array_prob["ent_prob"];
+			$bis_polt_prob = $array_prob["bis_prob"];
+			$tek_polt_prob = $array_prob["tek_prob"];
+			
+			//ambil kelas terbaik (kelas dengan polterior probability tertinggi)
+			$best_class= $this->best_class_wp($pol_polt_prob,$ola_polt_prob, $kes_polt_prob, $pen_polt_prob, $ent_polt_prob, $bis_polt_prob, $tek_polt_prob);
+			
+			//masukkan ke array results
+			$array_results[] = array("object_id"=>$id,
+			"term_taxonomy_id"=>$best_class); 
+		}
+		
+		return $array_results;
+		//var_dump($array_results);
+	}
 	//klasifikasi terbaru
 	public function insert_klasifikasi(){
 		$this->db2 = $this->load->database('db2', TRUE);
@@ -1239,11 +1356,14 @@ class M_Classifier extends CI_Model{
 		$this->db2->insert_batch('wp_klasifikasi',$data);
 		// $this->db2->insert_batch('wp_term_relationships',$data);
 	}
-	// public function update_klasifikasi(){
-	// 	$this->db2 = $this->load->database('db2', TRUE);
-	// 	$data = $this->naive_bayes_klasifikasi();
-	// 	$this->db2->insert_batch('wp_klasifikasi',$data);
-	// 	$this->db2->insert_batch('wp_term_relationships',$data);
-	// }
+	
+	public function update_klasifikasi(){
+		$this->db2 = $this->load->database('db2', TRUE);
+		$this->db2->truncate('wp_term_relationships');
+		$data = $this->naive_bayes_wp();
+		$this->db2->insert_batch('wp_term_relationships',$data);
+		// $this->db2->insert_batch('wp_term_relationships',$data);
+	}
+	
 }
 ?>
