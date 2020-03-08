@@ -9,6 +9,7 @@ $stopwords_active = "";
 $termtokenized_active = "";
 $termfiltered_active = "";
 $termstemmed_active = "";
+$klasifikasi_active = " ";
 
 if(isset($title)){
     switch ($title) {
@@ -47,6 +48,10 @@ if(isset($title)){
         case 'termstemmed':
             $termstemmed_active = "active-menu";
             break;
+        
+        case 'klasifikasi':
+                $klasifikasi_active = "active-menu";
+                break;
     }
 }
 
@@ -104,6 +109,10 @@ if(isset($title)){
                     </li>
                     <li>
                         <a class="<?=$stopwords_active?>" href="<?=site_url()?>stopwords"><i class="material-icons">feedback</i> Stop Words</a>
+                    </li>
+
+                    <li>
+                        <a class="<?=$klasifikasi_active?>" href="<?=site_url()?>klasifikasi"><i class="material-icons">feedback</i> Klasifikasi</a>
                     </li>
                     
                     <li>

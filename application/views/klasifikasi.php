@@ -19,17 +19,17 @@
 
     		<div class="row">
                 <div class="col-md-12">
-                    <h2 class="page-header">Penghitungan Akurasi Sistem Klasifikasi Berita</h2>
+                    <h2 class="page-header"> Sistem Klasifikasi Berita</h2>
                 </div>
             </div>
 
 			<!--BUTTON AKURASI-->
-			<div class="btn-fixed">            
-				<button class="btn btn-primary btn-lg" id="klasifikasi"><i class="material-icons material-icons-1-5x">pie_chart</i> Hitung</button>  
+			<div class="col-md-3 col-sm-12 col-xs-12">            
+				<button class="btn btn-primary btn-lg" id="klasifikasi"><i class="material-icons material-icons-1-5x">pie_chart</i> KLASIFIKASI</button>  
 			</div>
             
             <!--TABEL MULAI DI SINI-->
-            <div id="divtabeltest">
+            <!-- <div id="divtabeltest"> -->
                 <!--TABEL DIMUAT DI SINI -->
             </div>
             <!--TABEL BERAKHIR DI SINI--> 
