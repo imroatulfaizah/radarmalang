@@ -882,8 +882,8 @@ class M_Doc_Extraction extends CI_Model{
 		$hasilstemming = $this->stemming($hasilfilter); 
 		
 		//insert ke database
-		$this->db2 = $this->load->database('db2', TRUE);
-		$this->db2->insert('wp_posts',['post_author'=>$author,'post_content'=>$isi,'post_title'=>$judul,'post_status'=>$status,
+		//$this->db2 = $this->load->database('db2', TRUE);
+		$this->db->insert('wp_posts',['post_author'=>$author,'post_content'=>$isi,'post_title'=>$judul,'post_status'=>$status,
 		'term_tokenized'=>$hasiltoken,'term_filtered'=>$hasilfilter,'term_stemmed'=>$hasilstemming]);
 
 	}

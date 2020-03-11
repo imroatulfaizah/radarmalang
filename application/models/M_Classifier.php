@@ -503,12 +503,12 @@ class M_Classifier extends CI_Model{
 	}
 
 	public function all_test_docs2(){
-		$this->db2 = $this->load->database('db2', TRUE);
-		$this->db2->select('id, term_stemmed');
-		$this->db2->from('wp_posts');
-		$this->db2->where('post_type','post');
+		//$this->db2 = $this->load->database('db2', TRUE);
+		$this->db->select('id, term_stemmed');
+		$this->db->from('wp_posts');
+		$this->db->where('post_type','post');
 		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
-		$array_test_docs2 = $this->db2->get()->result_array();
+		$array_test_docs2 = $this->db->get()->result_array();
 		return $array_test_docs2;
 	}
 	
@@ -1350,18 +1350,18 @@ class M_Classifier extends CI_Model{
 	}
 	//klasifikasi terbaru
 	public function insert_klasifikasi(){
-		$this->db2 = $this->load->database('db2', TRUE);
-		$this->db2->truncate('wp_klasifikasi');
+		//$this->db2 = $this->load->database('db2', TRUE);
+		$this->db->truncate('wp_klasifikasi');
 		$data = $this->naive_bayes_klasifikasi();
-		$this->db2->insert_batch('wp_klasifikasi',$data);
+		$this->db->insert_batch('wp_klasifikasi',$data);
 		// $this->db2->insert_batch('wp_term_relationships',$data);
 	}
 	
 	public function update_klasifikasi(){
-		$this->db2 = $this->load->database('db2', TRUE);
-		$this->db2->truncate('wp_term_relationships');
+		//$this->db2 = $this->load->database('db2', TRUE);
+		$this->db->truncate('wp_term_relationships');
 		$data = $this->naive_bayes_wp();
-		$this->db2->insert_batch('wp_term_relationships',$data);
+		$this->db->insert_batch('wp_term_relationships',$data);
 		// $this->db2->insert_batch('wp_term_relationships',$data);
 	}
 	

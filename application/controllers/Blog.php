@@ -3,7 +3,7 @@ class Blog extends CI_Controller{
 	private $db2;
 	function __construct(){
 		parent::__construct();
-		$this->db2 = $this->load->database('db2', TRUE);
+		//$this->db2 = $this->load->database('db2', TRUE);
 		// $this->load->model('M_Cruddataset');
 		$this->load->model('M_Doc_Extraction');
 		$this->load->model('M_Classifier');
