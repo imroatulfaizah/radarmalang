@@ -62,6 +62,10 @@ class Blog extends CI_Controller{
 				// $slug=$pre_slug.'.html'; // tambahkan ektensi .html pada slug
 
 				$this->M_Doc_Extraction->insertterm_klasifikasi($author,$judul,$isi,$status);
+
+				//langsung klasifikasi ketika posting
+				$this->M_Classifier->insert_klasifikasi();
+				$this->M_Classifier->update_klasifikasi();
 				//$this->blog_model->simpan_post($judul,$isi,$slug,$gambar,$kategori_datauji); //simpan artikel ke database
 				redirect('blog');
 				//redirect('blog/lists');

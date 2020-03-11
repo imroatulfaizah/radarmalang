@@ -22,7 +22,6 @@
 				<div class="form-group">
                           <label for="post_status">Post Status</label>
                           <select class="form-control text-left" name="post_status">
-                              <option value="publish">PUBLISH</option>
                               <option value="draft">DRAFT</option>
                           </select>
                       </div>
