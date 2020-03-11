@@ -560,7 +560,7 @@ class M_Classifier extends CI_Model{
 			$best_class = "OLAHRAGA";
 		} else if($kesehatan>$politik && $kesehatan>$olahraga && $kesehatan>$pendidikan && $kesehatan>$entertainment && $kesehatan>$bisnis && $kesehatan>$teknologi){
 			$best_class = "KESEHATAN";
-		} else if($pendidikan>$politik && $pendidikan>$olahraga && $pendidikan>$kesehatan && $pendidikan>$entertainment && $pendidikan>$bisnis && $kesehatan>$teknologi){
+		} else if($pendidikan>$politik && $pendidikan>$olahraga && $pendidikan>$kesehatan && $pendidikan>$entertainment && $pendidikan>$bisnis && $pendidikan>$teknologi){
 			$best_class = "PENDIDIKAN";
 		} else if($entertainment>$politik && $entertainment>$olahraga && $entertainment>$kesehatan && $entertainment>$pendidikan && $entertainment>$bisnis && $entertainment>$teknologi){
 			$best_class = "ENTERTAINMENT";
@@ -578,7 +578,7 @@ class M_Classifier extends CI_Model{
 			$best_class = "2";
 		} else if($kesehatan>$politik && $kesehatan>$olahraga && $kesehatan>$pendidikan && $kesehatan>$entertainment && $kesehatan>$bisnis && $kesehatan>$teknologi){
 			$best_class = "3";
-		} else if($pendidikan>$politik && $pendidikan>$olahraga && $pendidikan>$kesehatan && $pendidikan>$entertainment && $pendidikan>$bisnis && $kesehatan>$teknologi){
+		} else if($pendidikan>$politik && $pendidikan>$olahraga && $pendidikan>$kesehatan && $pendidikan>$entertainment && $pendidikan>$bisnis && $pendidikan>$teknologi){
 			$best_class = "4";
 		} else if($entertainment>$politik && $entertainment>$olahraga && $entertainment>$kesehatan && $entertainment>$pendidikan && $entertainment>$bisnis && $entertainment>$teknologi){
 			$best_class = "5";
