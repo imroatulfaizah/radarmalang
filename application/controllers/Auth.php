@@ -20,12 +20,12 @@ class Auth extends CI_Controller {
 
 	public function login(){
 
-		$username= $this->input->post("username");
-		$password= $this->input->post("password");
+		$user_email= $this->input->post("user_email");
+		$user_pass= $this->input->post("user_pass");
 		
 		//cek input validation
-		$this->form_validation->set_rules('username','Username','trim|required|max_length[40]');
-		$this->form_validation->set_rules('password','Password','trim|required|max_length[90]');
+		$this->form_validation->set_rules('user_email','user_email','trim|required|max_length[40]');
+		$this->form_validation->set_rules('user_pass','user_pass','trim|required|max_length[90]');
 		if ($this->form_validation->run() == FALSE){
            $this->session->set_flashdata('message','Input username atau password tidak valid!');
            $this->session->set_flashdata('type','danger');
@@ -33,7 +33,7 @@ class Auth extends CI_Controller {
            }
         else
             {
-         	$statuslogin = $this->M_Authentication->checklogin($username, $password);
+         	$statuslogin = $this->M_Authentication->checklogin($user_email, $user_pass);
 			if($statuslogin){
 				redirect ('dashboard');
 			}

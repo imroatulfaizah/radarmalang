@@ -50,6 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['artikel/(:any)'] = 'blog/detail/$1'; //route blog/detail/ disingkat menjadi artikel
-$route['default_controller'] = 'blog';
+$route['default_controller'] = 'auth';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

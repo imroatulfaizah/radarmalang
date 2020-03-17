@@ -8,9 +8,9 @@ class Katadasar extends CI_Controller
 		parent::__construct();
 		$this->load->model('M_Displaytable');
 		$this->load->model('M_Crudkatadasar');
-		// if(!$this->session->userdata('logged_in')){
-		// 	redirect ('/');
-		// }
+		if(!$this->session->userdata('logged_in')){
+			redirect ('/');
+		}
 	}
 
 	public function index(){
@@ -51,7 +51,7 @@ class Katadasar extends CI_Controller
 
 	public function inputkatadasar(){
 		$katabaru = $this->input->post('katadasarbaru');
-		$input_katadasar_baru = $this->m_crudkatadasar->inputkatadasar($katabaru);
+		$input_katadasar_baru = $this->M_Crudkatadasar->inputkatadasar($katabaru);
 
 		if($input_katadasar_baru){
 			$this->session->set_flashdata('notification','input_kd_success');

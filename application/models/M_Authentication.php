@@ -1,15 +1,15 @@
 <?php
-// defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed');
 class M_Authentication extends CI_Model
 {
 
-	public function checklogin($username, $password){
-		$user = $this->db->get_where("sa_user", array("username"=>$username, "password"=>md5($password)))->row_array();
+	public function checklogin($user_email, $user_pass){
+		$user = $this->db->get_where("wp_users", array("user_email"=>$user_email, "user_pass"=>md5($user_pass)))->row_array();
 
 		if (count($user)>0){
 		$logindata = array(
         'id' => $user["id"],
-        'name'  => $user["nama"],
+        'display_name'  => $user["display_name"],
         'logged_in' => TRUE);
 
         $this->session->set_userdata($logindata);
@@ -21,7 +21,7 @@ class M_Authentication extends CI_Model
 		}
 
 	public function logout	(){
-		$this->session->unset_userdata(array("username","id", 'logged_in'));
+		$this->session->unset_userdata(array("user_email","id", 'logged_in'));
 	}
 	}
 ?>

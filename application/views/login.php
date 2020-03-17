@@ -34,13 +34,13 @@
 						<span class="form-control-feedback">
 							<i class="material-icons">account_circle</i>
 						</span>
-						<input class="form-control" placeholder="Username" name="username" type="text" autofocus>
+						<input class="form-control" placeholder="Username" name="user_email" type="text" autofocus>
 					</div>
 					<div class="form-group has-feedback">
 						<span class="form-control-feedback">
 							<i class="material-icons">https</i>
 						</span>
-						<input class="form-control" placeholder="Password" name="password" type="password" autofocus>
+						<input class="form-control" placeholder="Password" name="user_pass" type="password" autofocus>
 					</div>
 								<br>
 								<button type="submit" class="btn btn-lg btn-login btn-block">Login</button>

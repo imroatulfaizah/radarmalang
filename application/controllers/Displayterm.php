@@ -7,9 +7,9 @@ class Displayterm extends CI_Controller{
 		parent::__construct();
 		$this->load->model('M_Displaytable');
 
-		// if(!$this->session->userdata('logged_in')){
-		// 	redirect ('/');
-		// }
+		if(!$this->session->userdata('logged_in')){
+			redirect ('/');
+		}
 	}
 	public function displaytokenized(){
 		$data['title'] = 'termtokenized';

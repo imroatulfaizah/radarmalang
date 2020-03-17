@@ -23,10 +23,46 @@
                 </div>
             </div>
 
-			<!--BUTTON AKURASI-->
-			<div class="col-md-3 col-sm-12 col-xs-12">            
-				<button class="btn btn-primary btn-lg" id="klasifikasi"><i class="material-icons material-icons-1-5x">pie_chart</i> KLASIFIKASI</button>  
-			</div>
+			<div class="container">
+		<div class="col-md-8 col-md-offset-2">
+			<h2>MY BLOG</h2><hr/>
+			<form action="<?php echo base_url().'blog/simpan_post'?>" method="post" enctype="multipart/form-data">
+				<input type="text" name="post_author" class="form-control" placeholder="post_author" required/><br/>
+				<input type="text" name="post_title" class="form-control" placeholder="post_title" required/><br/>
+				<!-- visitor-review aku ganti jadi post_content -->
+	            <textarea  id="post_content" name="post_content" class="form-control" required></textarea><br/>
+				<input type="file" name="foto" />
+				<div class="form-group">
+                          <label for="post_status">Post Status</label>
+                          <select class="form-control text-left" name="post_status">
+                              <option value="draft">DRAFT</option>
+                          </select>
+                      </div>
+	            <button id="visitor-btn" class="btn btn-success" type="submit">POST</button>
+            </form>
+		</div>
+		
+	</div>
+	<div id="analisis-wrapper">
+			<!--HASIL ANALISIS DIMUAT DI SINI-->
+		</div>
+	
+	<script src="<?php echo base_url().'assets/jquery/jquery-2.2.3.min.js'?>"></script>
+	<script type="text/javascript" src="<?php echo base_url().'assets/js/bootstrap.js'?>"></script>
+	<script type="text/javascript" src="<?php echo base_url().'assets/ckeditor/ckeditor.js'?>"></script>
+	<script type="text/javascript">
+	  $(function () {
+	  	// Fungsi untuk mengganti textarea dengan ckeditor style
+	      CKEDITOR.replace( 'visitor-review' ,{
+              extraPlugins : 'syntaxhighlight',        
+              toolbar: [
+                     ['Source'] ,
+                     ['Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink','-','Image'] ,
+                   ]              
+            });
+
+	  });
+	</script>
             
             <!--TABEL MULAI DI SINI-->
             <!-- <div id="divtabeltest"> -->

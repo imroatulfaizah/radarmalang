@@ -9,9 +9,9 @@ class Stopwords extends CI_Controller
 		$this->load->model('M_Displaytable');
 		$this->load->model('M_Crudstopwords');
 
-		// if(!$this->session->userdata('logged_in')){
-		// 	redirect ('/');
-		// }
+		if(!$this->session->userdata('logged_in')){
+			redirect ('/');
+		}
 	}
 
 	public function index(){

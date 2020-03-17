@@ -9,7 +9,7 @@ $stopwords_active = "";
 $termtokenized_active = "";
 $termfiltered_active = "";
 $termstemmed_active = "";
-$klasifikasi_active = " ";
+$blog_active = " ";
 
 if(isset($title)){
     switch ($title) {
@@ -49,8 +49,8 @@ if(isset($title)){
             $termstemmed_active = "active-menu";
             break;
         
-        case 'klasifikasi':
-                $klasifikasi_active = "active-menu";
+        case 'blog':
+                $blog_active = "active-menu";
                 break;
     }
 }
@@ -67,8 +67,9 @@ if(isset($title)){
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <a class="navbar-brand"><img src="<?php echo base_url().'assets/img/radarmalang.png';?>" width="500px" height="50px"></a>
                 <a class="navbar-brand" href="#"><small>Klasifikasi Berita</small></a>
-            </div>
+            
 
             <ul class="nav navbar-top-links navbar-right user-dropdown">
                 <!-- /.dropdown -->
@@ -112,7 +113,7 @@ if(isset($title)){
                     </li>
 
                     <li>
-                        <a class="<?=$klasifikasi_active?>" href="<?=site_url()?>klasifikasi"><i class="material-icons">feedback</i> Klasifikasi</a>
+                        <a class="<?=$blog_active?>" href="<?=site_url()?>blog"><i class="material-icons">feedback</i> Post Artikel</a>
                     </li>
                     
                     <li>
