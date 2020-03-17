@@ -1,6 +1,6 @@
 <?php
 class Blog extends CI_Controller{
-	private $db2;
+	//private $db2;
 	function __construct(){
 		parent::__construct();
 		//$this->db2 = $this->load->database('db2', TRUE);
@@ -12,8 +12,6 @@ class Blog extends CI_Controller{
 	}
 	function index(){
 		  $this->load->view('v_blog_post');
-
-		
 		// $data['total_traindata'] = $this->M_Classifier->count_total_traindata();
 		// $data['pol_traindata'] = $this->M_Classifier->count_pol_traindata();
 		// $data['ola_traindata'] = $this->M_Classifier->count_ola_traindata();
@@ -28,8 +26,16 @@ class Blog extends CI_Controller{
 
 	function simpan_post(){
 		
+		$foto = $_FILES['foto']['name'];
+		$tmp = $_FILES['foto']['tmp_name'];
+		$fotobaru = date('d/m/').$foto;
+	
+		$path = "./wordpress/wp-content/uploads/2020/03/".$foto;
+
+		move_uploaded_file($tmp, $path);
+		
 		//$db2 = $this->load->database('db2', TRUE);
-		// $config['upload_path'] = './assets/img/'; //path folder
+		// $config['upload_path'] = './wp-content/uploads/'; //path folder
 	    // $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
 	    // $config['encrypt_name'] = TRUE; //enkripsi nama file ketika di upload
 
@@ -39,17 +45,18 @@ class Blog extends CI_Controller{
 	    //     	$gbr = $this->upload->data();
 	    //         //Compress Image
 	    //         $config['image_library']='gd2';
-	    //         $config['source_image']='./assets/img/'.$gbr['file_name'];
+	    //         $config['source_image']='./wp-content/uploads/'.$gbr['file_name'];
 	    //         $config['create_thumb']= FALSE;
 	    //         $config['maintain_ratio']= FALSE;
 	    //         $config['quality']= '60%';
 	    //         $config['width']= 710;
 	    //         $config['height']= 420;
-	    //         $config['new_image']= './assets/img/'.$gbr['file_name'];
+	    //         $config['new_image']= './wp-content/uploads/'.$gbr['file_name'];
 	    //         $this->load->library('image_lib', $config);
 	    //         $this->image_lib->resize();
 
 				// $gambar=$gbr['file_name']; //ambil nama file yang terupload enkripsi
+				
 				$author=$this->input->post('post_author');
                 $judul=$this->input->post('post_title');
 				$isi=$this->input->post('post_content');
@@ -61,7 +68,7 @@ class Blog extends CI_Controller{
 				// $pre_slug=strtolower(str_replace(" ", "-", $trim)); // hilangkan spasi, kemudian ganti spasi dengan tanda strip (-)
 				// $slug=$pre_slug.'.html'; // tambahkan ektensi .html pada slug
 
-				$this->M_Doc_Extraction->insertterm_klasifikasi($author,$judul,$isi,$status);
+				$this->M_Doc_Extraction->insertterm_klasifikasi($author,$judul,$isi,$status,$fotobaru);
 
 				//langsung klasifikasi ketika posting
 				$this->M_Classifier->insert_klasifikasi();

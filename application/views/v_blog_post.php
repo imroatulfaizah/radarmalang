@@ -18,7 +18,7 @@
 				<input type="text" name="post_title" class="form-control" placeholder="post_title" required/><br/>
 				<!-- visitor-review aku ganti jadi post_content -->
 	            <textarea  id="post_content" name="post_content" class="form-control" required></textarea><br/>
-	            <!-- <input type="file" name="filefoto" required><br> -->
+				<input type="file" name="foto" />
 				<div class="form-group">
                           <label for="post_status">Post Status</label>
                           <select class="form-control text-left" name="post_status">

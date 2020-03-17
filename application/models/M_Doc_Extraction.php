@@ -869,7 +869,7 @@ class M_Doc_Extraction extends CI_Model{
 
 	}
 	
-	public function insertterm_klasifikasi($author,$judul,$isi,$status){
+	public function insertterm_klasifikasi($author,$judul,$isi,$status,$fotobaru){
 		
 		
 		//$db2 = $this->load->database('db2', TRUE);
@@ -879,13 +879,26 @@ class M_Doc_Extraction extends CI_Model{
 		// $jenis_data = $this->$jenis_data;
 		$hasiltoken = $this->tokenizing($isi);
 		$hasilfilter = $this->filtering($hasiltoken);
-		$hasilstemming = $this->stemming($hasilfilter); 
-		
+		$hasilstemming = $this->stemming($hasilfilter);
+		$meta_key = "_wp_attached_file";
+		$tumbnail = "_thumbnail_id";
+		$wp_attachment_metadata = '_wp_attachment_metadata';
+		$id_gambar = '116';
 		//insert ke database
 		//$this->db2 = $this->load->database('db2', TRUE);
 		$this->db->insert('wp_posts',['post_author'=>$author,'post_content'=>$isi,'post_title'=>$judul,'post_status'=>$status,
 		'term_tokenized'=>$hasiltoken,'term_filtered'=>$hasilfilter,'term_stemmed'=>$hasilstemming]);
 
+		//insert ke wp_postmeta
+		$query = $this->db->query("select id from wp_posts order by id desc limit 1");
+
+		foreach ($query->result() as $row)
+		{
+				echo $row->id;
+		}
+		$this->db->insert('wp_postmeta',['post_id'=>$row->id,'meta_key'=>$meta_key,'meta_value'=>$fotobaru]);
+		$this->db->insert('wp_postmeta',['post_id'=>$row->id,'meta_key'=>$wp_attachment_metadata,'meta_value'=>$fotobaru]);
+		$this->db->insert('wp_postmeta',['post_id'=>$row->id,'meta_key'=>$tumbnail,'meta_value'=>$id_gambar]);
 	}
 
 	public function editterm($id_berita,$isi_berita){
