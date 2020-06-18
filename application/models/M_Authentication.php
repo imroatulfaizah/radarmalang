@@ -4,12 +4,12 @@ class M_Authentication extends CI_Model
 {
 
 	public function checklogin($user_email, $user_pass){
-		$user = $this->db->get_where("wp_users", array("user_email"=>$user_email, "user_pass"=>md5($user_pass)))->row_array();
+		$user = $this->db->get_where("wp_users", array("user_email"=>$user_email, "user_pass"=>($user_pass)))->row_array();
 
 		if (count($user)>0){
 		$logindata = array(
         'id' => $user["id"],
-        'display_name'  => $user["display_name"],
+        'display_name'  => $user["user_login"],
         'logged_in' => TRUE);
 
         $this->session->set_userdata($logindata);

@@ -7,9 +7,9 @@ class Klasifikasi extends CI_Controller{
 	$this->load->model('M_Cruddataset');
 	$this->load->model('M_Classifier');
 	$this->load->model('M_Displaytable');
-	// if(!$this->session->userdata('logged_in')){
-	// 		$this->index();
-	// 	}
+	if(!$this->session->userdata('logged_in')){
+			$this->index();
+		}
 	}
 
 	public function index(){

@@ -9,9 +9,9 @@ class Visitor extends CI_Controller
 		$this->load->model('M_Doc_Extraction');
 		$this->load->model('M_Classifier');
 
-		// if($this->session->userdata('logged_in')){
-		// 	redirect ('dashboard');
-		// }
+		if($this->session->userdata('logged_in')){
+			redirect ('dashboard');
+		}
 	}
 
 	public function index(){
