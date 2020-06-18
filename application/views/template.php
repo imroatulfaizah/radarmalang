@@ -75,7 +75,7 @@ if(isset($title)){
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                        <i class="material-icons">perm_identity</i> <?php echo $this->session->userdata('name')?> <i class="material-icons">arrow_drop_down</i> 
+                        <i class="material-icons">perm_identity</i> <?php echo $this->session->userdata('display_name')?> <i class="material-icons">arrow_drop_down</i> 
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li class="divider"></li>
@@ -93,6 +93,7 @@ if(isset($title)){
 <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
+                <?php if($this->session->userdata('display_name')==='Admin'):?>
                     <li>
                         <a class="<?=$dashboard_active?>" href="<?=site_url()?>dashboard"><i class="material-icons">laptop</i> Dashboard</a>
                     </li>
@@ -110,10 +111,6 @@ if(isset($title)){
                     </li>
                     <li>
                         <a class="<?=$stopwords_active?>" href="<?=site_url()?>stopwords"><i class="material-icons">feedback</i> Stop Words</a>
-                    </li>
-
-                    <li>
-                        <a class="<?=$blog_active?>" href="<?=site_url()?>blog"><i class="material-icons">feedback</i> Post Artikel</a>
                     </li>
                     
                     <li>
@@ -134,6 +131,11 @@ if(isset($title)){
                     <li>
                     <a href="#myModal" data-toggle="modal"><i class="material-icons">help</i> Tentang</a>
                     </li>
+                <?php else:?>
+                    <li>
+                        <a class="<?=$blog_active?>" href="<?=site_url()?>blog"><i class="material-icons">feedback</i> Post Artikel</a>
+                    </li>
+                    <?php endif;?>
                 </ul>
 
             </div>

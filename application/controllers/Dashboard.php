@@ -7,6 +7,8 @@ class Dashboard extends CI_Controller{
 	$this->load->model('M_Classifier');
 	if(!$this->session->userdata('logged_in')){
 		redirect ('/');
+		}elseif($this->session->userdata('display_name')==='Reporter'){
+			redirect ('/blog');
 		}
 	}
 	// if(!$this->session->userdata('logged_in')){
