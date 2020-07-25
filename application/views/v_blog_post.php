@@ -25,15 +25,15 @@
 
 			<div class="container">
 		<div class="col-md-8 col-md-offset-2">
-			<h2>MY BLOG</h2><hr/>
+			<h2>Posting Berita</h2><hr/>
 			<form action="<?php echo base_url().'blog/simpan_post'?>" method="post" enctype="multipart/form-data">
-				<input type="text" name="post_author" class="form-control" placeholder="post_author" required/><br/>
-				<input type="text" name="post_title" class="form-control" placeholder="post_title" required/><br/>
+				<input type="hidden" name="post_author" value="3" class="form-control" required/><br/>
+				<input type="text" name="post_title" class="form-control" placeholder="Judul Berita" required/><br/>
 				<!-- visitor-review aku ganti jadi post_content -->
-	            <textarea  id="post_content" name="post_content" class="form-control" required></textarea><br/>
-				<input type="file" name="foto" />
+	            <textarea id="post_content" name="post_content" class="form-control" required></textarea><br/>
+				<div class="form-group"><input type="file" name="foto" /> <div><br>
 				<div class="form-group">
-                          <label for="post_status">Post Status</label>
+                          <!-- <label for="post_status">Post Status</label> -->
                           <select class="form-control text-left" name="post_status">
                               <option value="draft">DRAFT</option>
                           </select>

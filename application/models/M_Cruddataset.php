@@ -15,6 +15,7 @@ class M_Cruddataset extends CI_Model
 public function deletedataset($id_berita){
 	$delete_berita = $this->db->delete('sa_berita',['id_berita'=>$id_berita]);
 	return $delete_berita;
+	
 	}
 
 	

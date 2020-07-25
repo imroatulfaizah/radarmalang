@@ -128,14 +128,15 @@ if(isset($title)){
                         </ul>
                     </li>
                     
-                    <li>
-                    <a href="#myModal" data-toggle="modal"><i class="material-icons">help</i> Tentang</a>
-                    </li>
+                    
                 <?php else:?>
                     <li>
                         <a class="<?=$blog_active?>" href="<?=site_url()?>blog"><i class="material-icons">feedback</i> Post Artikel</a>
                     </li>
                     <?php endif;?>
+                    <li>
+                    <a href="#myModal" data-toggle="modal"><i class="material-icons">help</i> Tentang</a>
+                    </li>
                 </ul>
 
             </div>

@@ -866,7 +866,7 @@ class M_Doc_Extraction extends CI_Model{
 		//insert ke database
 		$this->db->insert('sa_berita',['judul_berita'=>$judul,'isi_berita'=>$isi,'kategori_berita'=>$kategori,'jenis_data'=>$jenis_data,
 		'term_tokenized'=>$hasiltoken,'term_filtered'=>$hasilfilter,'term_stemmed'=>$hasilstemming]);
-
+		//return $this->db->insert_id();
 	}
 	
 	public function insertterm_klasifikasi($author,$judul,$isi,$status,$fotobaru){
@@ -909,7 +909,7 @@ class M_Doc_Extraction extends CI_Model{
 
 		//update database
 		$this->db->where('id_berita',$id_berita);
-		$this->db->update('sa_bagofwords',['term_tokenized'=>$hasiltoken,
+		$this->db->update('sa_berita',['term_tokenized'=>$hasiltoken,
 			'term_filtered'=>$hasilfilter,'term_stemmed'=>$hasilstemming]);
 	}
 

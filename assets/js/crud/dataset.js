@@ -16,20 +16,20 @@ $(document).ready(function () {
 
    $(document).on('click', ".btn-delete", function(e){
       var idReview = $(this).data('id');
-      $('#deletereviewmodal #id_review').val(idReview);
+      $('#deletereviewmodal #id_berita').val(idReview);
    });
 
    $(".btn-add").on('click', function(){
       $(".modal-action").text("Tambah");
       $("#modaldataset form").attr("action", url + "dataset/inputdataset");
-      $('#modaldataset #id_review').val("");
+      $('#modaldataset #id_berita').val("");
       
       //kosongkan form setiap klik button tambah
-      $("#modaldataset input[name=judulreview]").val('');
-      $("#modaldataset textarea[name=teksreview]").val('');
+      $("#modaldataset input[name=judul_berita]").val('');
+      $("#modaldataset textarea[name=isi_berita]").val('');
       $("#countreviewchar").text("0");
-	    $("#modaldataset select[name=kategori]").val('DATA LATIH');
-      $("#modaldataset select[name=sentimenawal]").val('POSITIF');
+	    $("#modaldataset select[name=kategori_berita]").val('DATA LATIH');
+      $("#modaldataset select[name=jenis_data]").val('POLITIK');
 
       document.getElementById('countreviewchar').style.color = 'grey';
    });
@@ -38,19 +38,19 @@ $(document).ready(function () {
       $(".modal-action").text("Edit");
       $("#modaldataset form").attr("action", url + "dataset/editdataset");
       var idReview = $(this).data('id');
-      $('#modaldataset #id_review').val(idReview);
+      $('#modaldataset #id_berita').val(idReview);
       $.ajax({
         method:'post',
         url: url + "dataset/fetchid",
-        data:{id:idReview},
+        data:{id_berita:idReview},
         success:function(data){
           var review = JSON.parse(data);
-          $("#modaldataset input[name=judulreview]").val(review.judul_review);
-          $("#modaldataset textarea[name=teksreview]").val(review.isi_review);
-		      $("#modaldataset select[name=kategori]").val(review.kategori_review);
-          $("#modaldataset select[name=sentimenawal]").val(review.sentimen_review);
+          $("#modaldataset input[name=judul_berita]").val(review.judul_berita);
+          $("#modaldataset textarea[name=isi_berita]").val(review.isi_berita);
+		      $("#modaldataset select[name=kategori_berita]").val(review.kategori_berita);
+          $("#modaldataset select[name=jenis_data]").val(review.jenis_data);
 
-          var count = $("#modaldataset textarea[name=teksreview]").val().length;
+          var count = $("#modaldataset textarea[name=isi_berita]").val().length;
           $("#countreviewchar").text(count);
           document.getElementById('countreviewchar').style.color = 'grey';
         },

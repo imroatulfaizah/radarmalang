@@ -198,8 +198,12 @@
     ?>
     
     <script>
+    // $(document).ready(function(){
+    //   toastr.error('berita gagal tersimpan. Silahkan coba kembali','',{closeButton: true, positionClass: "toast-top-center",
+    //   timeOut:2000, showMethod:"fadeIn", hideMethod:"fadeOut"});
+    // });
     $(document).ready(function(){
-      toastr.error('berita gagal tersimpan. Silahkan coba kembali','',{closeButton: true, positionClass: "toast-top-center",
+      toastr.success('Tambah berita berhasil.','',{closeButton: true, positionClass: "toast-top-center",
       timeOut:2000, showMethod:"fadeIn", hideMethod:"fadeOut"});
     });
     </script>
