@@ -30,12 +30,12 @@ class M_Displaytable extends CI_Model
 	public function displaytabeltrain($start, $length, $search_query){
 		$this->db->like('term', $search_query);
 		$this->db->from('sa_vocabulary');
-		$this->db->order_by('term','ASC');
+		$this->db->order_by('id_term','ASC');
 		$totalfilter = $this->db->count_all_results();
 
 		$this->db->like('term', $search_query);
 		$this->db->from('sa_vocabulary');
-		$this->db->order_by('term','ASC');
+		$this->db->order_by('id_term','ASC');
 		$this->db->limit($length, $start);
 		$data = $this->db->get()->result_array();
 		$total = $this->db->count_all_results('sa_vocabulary');
@@ -95,12 +95,12 @@ class M_Displaytable extends CI_Model
 	public function displaydataset($start, $length, $search_query){
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
-		$this->db->order_by('judul_berita','ASC');
+		$this->db->order_by('id_berita','ASC');
 		$totalfilter = $this->db->count_all_results();
 
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
-		$this->db->order_by('judul_berita','ASC');
+		$this->db->order_by('id_berita','ASC');
 		$this->db->limit($length, $start);
 		$data = $this->db->get()->result_array();
 		$total = $this->db->count_all_results('sa_berita');
@@ -114,12 +114,12 @@ class M_Displaytable extends CI_Model
 	public function displaykatadasar($start, $length, $search_query){
 		$this->db->like('kata_katadasar', $search_query);
 		$this->db->from('sa_katadasar');
-		$this->db->order_by('kata_katadasar','ASC');
+		$this->db->order_by('id_katadasar','ASC');
 		$totalfilter = $this->db->count_all_results();
 
 		$this->db->like('kata_katadasar', $search_query);
 		$this->db->from('sa_katadasar');
-		$this->db->order_by('kata_katadasar','ASC');
+		$this->db->order_by('id_katadasar','ASC');
 		$this->db->limit($length, $start);
 		$data = $this->db->get()->result_array();
 		$total = $this->db->count_all_results('sa_katadasar');
@@ -133,12 +133,12 @@ class M_Displaytable extends CI_Model
 	public function displaystopwords($start, $length, $search_query){
 		$this->db->like('kata_stopwords', $search_query);
 		$this->db->from('sa_stopwords');
-		$this->db->order_by('kata_stopwords','ASC');
+		$this->db->order_by('id_stopwords','ASC');
 		$totalfilter = $this->db->count_all_results();
 
 		$this->db->like('kata_stopwords', $search_query);
 		$this->db->from('sa_stopwords');
-		$this->db->order_by('kata_stopwords','ASC');
+		$this->db->order_by('id_stopwords','ASC');
 		$this->db->limit($length, $start);
 		$data = $this->db->get()->result_array();
 		$total = $this->db->count_all_results('sa_stopwords');
@@ -153,13 +153,13 @@ class M_Displaytable extends CI_Model
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
 		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
-		$this->db->order_by('sa_berita.judul_berita','ASC');
+		$this->db->order_by('sa_berita.id_berita','ASC');
 		$totalfilter = $this->db->count_all_results();
 
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
 		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
-		$this->db->order_by('sa_berita.judul_berita','ASC');
+		$this->db->order_by('sa_berita.id_berita','ASC');
 		$this->db->limit($length, $start);
 		$data = $this->db->get()->result_array();
 		$total = $this->db->count_all_results('sa_berita');
@@ -174,13 +174,13 @@ class M_Displaytable extends CI_Model
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
 		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
-		$this->db->order_by('sa_berita.judul_berita','ASC');
+		$this->db->order_by('sa_berita.id_berita','ASC');
 		$totalfilter = $this->db->count_all_results();
 
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
 		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
-		$this->db->order_by('sa_berita.judul_berita','ASC');
+		$this->db->order_by('sa_berita.id_berita','ASC');
 		$this->db->limit($length, $start);
 		$data = $this->db->get()->result_array();
 		$total = $this->db->count_all_results('sa_berita');
@@ -195,13 +195,13 @@ class M_Displaytable extends CI_Model
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
 		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
-		$this->db->order_by('sa_berita.judul_berita','ASC');
+		$this->db->order_by('sa_berita.id_berita','ASC');
 		$totalfilter = $this->db->count_all_results();
 
 		$this->db->like('judul_berita', $search_query);
 		$this->db->from('sa_berita');
 		//$this->db->join('sa_bagofwords', 'sa_bagofwords.id_berita = sa_berita.id_berita');
-		$this->db->order_by('sa_berita.judul_berita','ASC');
+		$this->db->order_by('sa_berita.id_berita','ASC');
 		$this->db->limit($length, $start);
 		$data = $this->db->get()->result_array();
 		$total = $this->db->count_all_results('sa_berita');
