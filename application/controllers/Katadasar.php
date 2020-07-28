@@ -10,7 +10,9 @@ class Katadasar extends CI_Controller
 		$this->load->model('M_Crudkatadasar');
 		if(!$this->session->userdata('logged_in')){
 			redirect ('/');
-		}
+			}elseif($this->session->userdata('display_name')==='Reporter'){
+				redirect ('/blog');
+			}
 	}
 
 	public function index(){

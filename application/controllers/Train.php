@@ -8,9 +8,12 @@ class Train extends CI_Controller{
 	$this->load->model('M_Classifier');
 	$this->load->model('M_Cruddataset');
 	if(!$this->session->userdata('logged_in')){
-			redirect ('/');
+		redirect ('/');
+		}elseif($this->session->userdata('display_name')==='Reporter'){
+			redirect ('/blog');
+		}
 	}
-	}
+	
 
 	public function index(){
 		$data['title'] = 'train';

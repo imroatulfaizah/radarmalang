@@ -10,6 +10,7 @@ $termtokenized_active = "";
 $termfiltered_active = "";
 $termstemmed_active = "";
 $blog_active = " ";
+$perhitungan_active = " ";
 
 if(isset($title)){
     switch ($title) {
@@ -50,8 +51,12 @@ if(isset($title)){
             break;
         
         case 'blog':
-                $blog_active = "active-menu";
-                break;
+            $blog_active = "active-menu";
+            break;
+
+        case 'perhitungan':
+            $perhitungan_active = "active-menu";
+            break;
     }
 }
 
@@ -100,12 +105,22 @@ if(isset($title)){
 					<li>
                         <a class="<?=$dataset_active?>" href="<?=site_url()?>dataset"><i class="material-icons">storage</i> Dataset</a>
                     </li>
-					<li>
+                    <li>
                         <a class="<?=$train_active?>" href="<?=site_url()?>train"><i class="material-icons">playlist_play</i> Latih Sistem</a>
                     </li>
                     <li>
-                        <a class="<?=$akurasi_active?>" href="<?=site_url()?>akurasi"><i class="material-icons">pie_chart</i> Hitung Akurasi</a>
+                       <a href="#"><i class="material-icons">chat</i> Perhitungan<i class="material-icons arrow">arrow_drop_down</i></a>
+                        <ul aria-expanded="true" class="nav nav-second-level">
+                            <li>
+                            <a class="<?=$perhitungan_active?>" href="<?=site_url()?>perhitungan"><i class="material-icons">playlist_play</i> Proses Perhitungan</a>
+                            </li>
+                            <li>
+                            <a class="<?=$akurasi_active?>" href="<?=site_url()?>akurasi"><i class="material-icons">pie_chart</i> Hitung Akurasi</a>
+                            </li>
+                        </ul>
                     </li>
+					
+                    
                     <li>
                         <a class="<?=$katadasar_active?>" href="<?=site_url()?>katadasar"><i class="material-icons">question_answer</i> Kata Dasar</a>
                     </li>

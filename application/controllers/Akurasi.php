@@ -8,7 +8,9 @@ class Akurasi extends CI_Controller{
 	$this->load->model('M_Classifier');
 	$this->load->model('M_Displaytable');
 	if(!$this->session->userdata('logged_in')){
-			$this->index();
+		redirect ('/');
+		}elseif($this->session->userdata('display_name')==='Reporter'){
+			redirect ('/blog');
 		}
 	}
 

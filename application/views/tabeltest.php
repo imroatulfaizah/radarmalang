@@ -38,7 +38,7 @@
 	<div class="col-md-12" id="confusion-matrix">
 		<!--Confusion Matrix-->
 		<div class="alert alert-info">
-				<p class="text-center" style="padding-top:0;padding-bottom:10px;"><strong>Confusion Matrix</strong></p>
+				<p class="text-center" style="padding-top:0;padding-bottom:10px;"><strong>EVALUASI</strong></p>
 				<div class="table-responsive">
 					<table class="table table-bordered">
 						<tr>
@@ -50,7 +50,7 @@
 							<td><strong>Klasifikasi ENTERTAINMENT (E)</strong></td>
 							<td><strong>Klasifikasi BISNIS (F)</strong></td>
 							<td><strong>Klasifikasi TEKNOLOGI (G)</strong></td>
-							<td><strong>Akurasi (G)</strong></td>
+							<!-- <td><strong>Akurasi (G)</strong></td> -->
 						</tr>
 						<tr>
 							<td><strong>POLITIK (A)</strong></td>
@@ -169,5 +169,6 @@
 			</table>
 		</div> -->
 		<!--End COnfusion Matrix-->
+		
 	</div>
 </div>

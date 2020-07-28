@@ -13,6 +13,7 @@ function loadtabel(){
     "serverSide": true,
     "ajax": url + "akurasi/tabeltest"
   });
+  
 }
 
 function loadmatrix(){

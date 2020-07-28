@@ -429,7 +429,7 @@ class M_Classifier extends CI_Model{
 		$ent_terms_count = count($this->array_ent_terms()); //jumlah semua term di data latih entertainment
 		$bis_terms_count = count($this->array_bis_terms()); //jumlah semua term di data latih bisnis
 		$tek_terms_count = count($this->array_tek_terms()); //jumlah semua term di data latih teknologi
-
+		var_dump($pol_terms_count);
 		$array_pol_occ = $this->get_pol_occurences();
 		$array_ola_occ = $this->get_ola_occurences();
 		$array_kes_occ = $this->get_kes_occurences();
@@ -437,7 +437,9 @@ class M_Classifier extends CI_Model{
 		$array_ent_occ = $this->get_ent_occurences();
 		$array_bis_occ = $this->get_bis_occurences();
 		$array_tek_occ = $this->get_tek_occurences();
+		//var_dump($array_pol_occ);
 		$vocab_count = count($vocab); //jumlah semua term di vocabulary
+		var_dump($vocab_count);
 		for($i=0; $i<$vocab_count; $i++){
 			
 			//hitung likelihood kelas politif dan olaatif untuk setiap term di vocabulary
@@ -448,6 +450,7 @@ class M_Classifier extends CI_Model{
 			$ent_likelihood = $this->likelihood($array_ent_occ[$i],$ent_terms_count,$vocab_count);
 			$bis_likelihood = $this->likelihood($array_bis_occ[$i],$bis_terms_count,$vocab_count);
 			$tek_likelihood = $this->likelihood($array_tek_occ[$i],$tek_terms_count,$vocab_count);
+			//var_dump($pol_likelihood);
 			$array_training_terms[] = array("term"=>$vocab[$i],
 			"pol_occ"=>$array_pol_occ[$i],
 			"ola_occ"=>$array_ola_occ[$i],
@@ -601,8 +604,9 @@ class M_Classifier extends CI_Model{
 		$ent_terms_count = count($this->array_ent_terms()); //jumlah semua term di data latih entertainment
 		$bis_terms_count = count($this->array_bis_terms()); //jumlah semua term di data latih bisnis
 		$tek_terms_count = count($this->array_tek_terms()); //jumlah semua term di data latih teknologi
-
+		//var_dump($pol_terms_count);
 		$vocab_count = count($vocab); //jumlah semua term di vocabulary
+		//var_dump($vocab_count);
 		$array_test_docs = $this->all_test_docs(); //ambil semua berita data uji
 		$pol_prior_prob = log($this->pol_prior_prob()); //log dari prior probability kelas politik
 		$ola_prior_prob = log($this->ola_prior_prob()); //log dari prior probability kelas olahraga
@@ -611,7 +615,7 @@ class M_Classifier extends CI_Model{
 		$ent_prior_prob = log($this->ent_prior_prob()); //log dari prior probability kelas entertainment
 		$bis_prior_prob = log($this->bis_prior_prob()); //log dari prior probability kelas bisnis
 		$tek_prior_prob = log($this->tek_prior_prob()); //log dari prior probability kelas teknologi
-		
+		//var_dump($pol_prior_prob);
 		
 		foreach($array_test_docs as $test_doc){ //loop untuk semua berita data uji
 			$id = $test_doc["id_berita"];
@@ -663,12 +667,13 @@ class M_Classifier extends CI_Model{
 				$total_pen_likelihood += $pen_likelihood;
 				$total_ent_likelihood += $ent_likelihood;
 				$total_bis_likelihood += $bis_likelihood;
-				$total_tek_likelihood += $tek_likelihood;				
+				$total_tek_likelihood += $tek_likelihood;	
+							
 			}
 			
 			//polterior probability kelas politif dokumen C = log(prior probability) + total likelihood
 			$pol_polt_prob = $pol_prior_prob + $total_pol_likelihood;
-			
+			//var_dump($pol_polt_prob);
 			//polterior probability kelas olaatif dokumen C = log(prior probability) + total likelihood
 			$ola_polt_prob = $ola_prior_prob + $total_ola_likelihood;
 
@@ -696,7 +701,7 @@ class M_Classifier extends CI_Model{
 			$ent_polt_prob = $array_prob["ent_prob"];
 			$bis_polt_prob = $array_prob["bis_prob"];
 			$tek_polt_prob = $array_prob["tek_prob"];
-			
+			//var_dump($pol_polt_prob);
 			//ambil kelas terbaik (kelas dengan polterior probability tertinggi)
 			$best_class= $this->best_class($pol_polt_prob,$ola_polt_prob, $kes_polt_prob, $pen_polt_prob, $ent_polt_prob, $bis_polt_prob, $tek_polt_prob);
 			
@@ -705,7 +710,15 @@ class M_Classifier extends CI_Model{
 			"ola_polt_prob"=>$ola_polt_prob, "kes_polt_prob"=>$kes_polt_prob,
 			"pen_polt_prob"=>$pen_polt_prob, "ent_polt_prob"=>$ent_polt_prob,
 			"bis_polt_prob"=>$bis_polt_prob, "tek_polt_prob"=>$tek_polt_prob,
-			"kategori_datauji"=>$best_class); 
+			"kategori_datauji"=>$best_class, "pol_prior_prob"=>$pol_prior_prob,
+			"ola_prior_prob"=>$ola_prior_prob, "kes_prior_prob"=>$kes_prior_prob,
+			"pen_prior_prob"=>$pen_prior_prob, "ent_prior_prob"=>$ent_prior_prob,
+			"bis_prior_prob"=>$bis_prior_prob, "tek_prior_prob"=>$tek_prior_prob,
+			"total_pol_likelihood"=>$total_pol_likelihood, "total_ola_likelihood"=>$total_ola_likelihood,
+			"total_kes_likelihood"=>$total_kes_likelihood, "total_pen_likelihood"=>$total_pen_likelihood,
+			"total_ent_likelihood"=>$total_ent_likelihood, "total_bis_likelihood"=>$total_bis_likelihood,
+			"total_tek_likelihood"=>$total_tek_likelihood
+		); 
 		}
 		
 		return $array_results;
@@ -1121,7 +1134,7 @@ class M_Classifier extends CI_Model{
 		$ent_terms_count = count($this->array_ent_terms()); //jumlah semua term di data latih entertainment
 		$bis_terms_count = count($this->array_bis_terms()); //jumlah semua term di data latih bisnis
 		$tek_terms_count = count($this->array_tek_terms()); //jumlah semua term di data latih teknologi
-
+		
 		$vocab_count = count($vocab); //jumlah semua term di vocabulary
 		$array_test_docs2 = $this->all_test_docs2(); //ambil semua berita data uji
 		$pol_prior_prob = log($this->pol_prior_prob()); //log dari prior probability kelas politik

@@ -11,7 +11,9 @@ class Stopwords extends CI_Controller
 
 		if(!$this->session->userdata('logged_in')){
 			redirect ('/');
-		}
+			}elseif($this->session->userdata('display_name')==='Reporter'){
+				redirect ('/blog');
+			}
 	}
 
 	public function index(){
